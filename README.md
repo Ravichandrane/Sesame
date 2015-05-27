@@ -1,7 +1,7 @@
 Sesame 
 ==========
 
-...
+Application mobile to open your garage
 
 
 #### TEAM
