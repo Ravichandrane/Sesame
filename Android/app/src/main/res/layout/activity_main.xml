@@ -1,35 +1,39 @@
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/DrawerLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:elevation="7dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="7dp"
+                android:background="@android:color/white"
+                tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <include
+     <include
             android:id="@+id/tool_bar"
             layout="@layout/tool_bar" />
 
-        <TextView
-            android:layout_below="@+id/tool_bar"
-            android:text="@string/hello_world"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/stateGarage"
+        android:text="@string/state_garage_label"
+        android:layout_below="@+id/tool_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
 
-    </LinearLayout>
+    <TextView
+        android:text="@string/last_opened_label"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#9A9A9A"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="102dp"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/RecyclerView"
-        android:layout_width="320dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:background="#ffffff"
-        android:scrollbars="vertical">
 
-    </android.support.v7.widget.RecyclerView>
-
-</android.support.v4.widget.DrawerLayout>
-
+</RelativeLayout>

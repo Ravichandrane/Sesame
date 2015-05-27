@@ -2,4 +2,5 @@
 <resources>
     <color name="ColorPrimary">#393F58</color>
     <color name="ColorPrimaryDark">#222436</color>
+    <color name="ColorButtonConnexion">#FF4883</color>
 </resources>
