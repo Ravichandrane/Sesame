@@ -8,10 +8,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Controller.MainActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name"
-            android:theme="@style/MainAppTheme">
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,14 +17,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.LoginActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_login">
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/LoginAppTheme" >
         </activity>
         <activity
-            android:name=".Controller.FoyerActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_foyer" >
+            android:name=".AddUserActivity"
+            android:label="@string/title_activity_add_user" >
+        </activity>
+        <activity
+            android:name=".NewProfilActivity"
+            android:label="@string/title_activity_new_profil">
         </activity>
     </application>
 

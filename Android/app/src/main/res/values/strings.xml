@@ -1,20 +1,17 @@
 <resources>
     <string name="app_name">Sesame</string>
 
-    <string name="hello_world">Hello</string>
-    <string name="home_title">Sesame</string>
+    <string name="stat_label">Etat : Fermé</string>
     <string name="action_settings">Settings</string>
-
     <string name="title_activity_login">Login</string>
-    <string name="password_hint_label">Mot de passe</string>
-    <string name="email_hint_label">Email</string>
-    <string name="login_button_text">Se connecter</string>
-
-    <string name="title_activity_foyer">Mon foyer</string>
-
-    <string name="title_section1">Utilisateurs</string>
-    <string name="title_section2">Profils</string>
-    <string name="state_garage_label">Etat : Fermé</string>
-    <string name="last_opened_label">Dernière ouverture:</string>
-
+    <string name="login_title">Sesame</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="email_hint">Email</string>
+    <string name="signin_label">Se connecter</string>
+    <string name="title_activity_add_user">Utilisateurs</string>
+    <string name="username_hint">Nom</string>
+    <string name="userFirstName_hint">Prénom</string>
+    <string name="title_activity_new_profil">Nouveau profil</string>
+    <string name="rang_hint">Nom du rang</string>
+    <string name="textTimeSlot">Rayon pour ouverture automatique</string>
 </resources>
