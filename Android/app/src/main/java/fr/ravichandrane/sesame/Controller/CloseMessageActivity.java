@@ -1,7 +1,9 @@
-package fr.ravichandrane.sesame;
+package fr.ravichandrane.sesame.Controller;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import fr.ravichandrane.sesame.R;
 
 
 public class CloseMessageActivity extends Activity {

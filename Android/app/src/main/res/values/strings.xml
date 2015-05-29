@@ -29,6 +29,10 @@
     <string name="textClose">Vous n’êtes pas autorisé à ouvrir le garage. Merci de contacter l’administrateur du garage pour plus d’informations.</string>
     <string name="title_activity_add_new_profil">Nouveau profil</string>
 
+    <string name="error_title">Oops ! Something wrong :(</string>
+    <string name="error_message">Please make sure to fill all input</string>
+    <string name="error_cancelMsg">Ok</string>
+
     <string name="hello_world">Hello world!</string>
 
 </resources>

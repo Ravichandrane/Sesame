@@ -1,9 +1,11 @@
-package fr.ravichandrane.sesame;
+package fr.ravichandrane.sesame.Controller;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import fr.ravichandrane.sesame.R;
 
 
 public class AddUserActivity extends Activity {

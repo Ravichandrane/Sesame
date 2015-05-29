@@ -10,4 +10,6 @@
     <color name="TextLabelColorMainActivity">#9A9A9A</color>
     <color name="colorPrimaryDarkOpenGarage">#BE2155</color>
     <color name="textAlpha">#A6FFFFFF</color>
+
+    <color name="drawerHeaderColor">#EEEEEE</color>
 </resources>
