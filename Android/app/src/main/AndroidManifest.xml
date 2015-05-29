@@ -37,7 +37,7 @@
         <activity
             android:name=".CloseMessageActivity"
             android:label="@string/title_activity_close_message"
-            android:theme="@style/LoginAppTheme">
+            android:theme="@style/LoginAppTheme" >
         </activity>
     </application>
 

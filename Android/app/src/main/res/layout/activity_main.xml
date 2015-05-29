@@ -18,12 +18,13 @@
         android:textSize="18.6sp"
         android:fontFamily="sans-serif"/>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/imageButton"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="168dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:src="@drawable/button_open"
         android:adjustViewBounds="true"/>
 
     <TextView
