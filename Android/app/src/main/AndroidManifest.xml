@@ -27,7 +27,17 @@
         </activity>
         <activity
             android:name=".NewProfilActivity"
-            android:label="@string/title_activity_new_profil">
+            android:label="@string/title_activity_new_profil" >
+        </activity>
+        <activity
+            android:name=".OpenMessageActivity"
+            android:label="@string/title_activity_open_message"
+            android:theme="@style/OpenGarage" >
+        </activity>
+        <activity
+            android:name=".CloseMessageActivity"
+            android:label="@string/title_activity_close_message"
+            android:theme="@style/LoginAppTheme">
         </activity>
     </application>
 

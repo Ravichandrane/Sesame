@@ -14,4 +14,12 @@
     <string name="title_activity_new_profil">Nouveau profil</string>
     <string name="rang_hint">Nom du rang</string>
     <string name="textTimeSlot">Rayon pour ouverture automatique</string>
+
+    <string name="title_activity_open_message">Garage ouvert</string>
+    <string name="openGarageText">Ouverture en cours</string>
+
+    <string name="title_activity_close_message">Close</string>
+    <string name="closeGarageText">Ouverture non autorisée</string>
+    <string name="textClose">Vous n’êtes pas autorisé à ouvrir le garage. Merci de contacter l’administrateur du garage pour plus d’informations.</string>
+
 </resources>

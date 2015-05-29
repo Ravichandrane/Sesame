@@ -17,7 +17,10 @@
 
     <style name="LoginAppTheme" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:background">@color/backgroundLogin</item>
+    </style>
+
+    <style name="OpenGarage" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDarkOpenGarage</item>
     </style>
 
 </resources>

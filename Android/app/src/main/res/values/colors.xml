@@ -8,4 +8,6 @@
     <color name="textLabelColor">#333333</color>
     <color name="simpleTextLabelColor">#BBBBBB</color>
     <color name="TextLabelColorMainActivity">#9A9A9A</color>
+    <color name="colorPrimaryDarkOpenGarage">#BE2155</color>
+    <color name="textAlpha">#A6FFFFFF</color>
 </resources>
