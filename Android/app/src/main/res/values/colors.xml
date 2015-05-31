@@ -2,14 +2,13 @@
 <resources>
     <color name="colorPrimary">#393F58</color>
     <color name="colorPrimaryDark">#222536</color>
-    <color name="backgroundLogin">#393F58</color>
-    <color name="mainColor">#FF4883</color>
-    <color name="indicatorInputColor">#717897</color>
-    <color name="textLabelColor">#333333</color>
-    <color name="simpleTextLabelColor">#BBBBBB</color>
-    <color name="TextLabelColorMainActivity">#9A9A9A</color>
-    <color name="colorPrimaryDarkOpenGarage">#BE2155</color>
-    <color name="textAlpha">#A6FFFFFF</color>
+    <color name="accentColor">#FF4883</color>
+    <color name="textColorPrimary">#ffffff</color>
 
-    <color name="drawerHeaderColor">#EEEEEE</color>
+    <color name="backgroundColor">#ffffff</color>
+    <color name="loginAccentColor">#717897</color>
+
+    <!-- New user color -->
+    <color name="textHintColor">#BEBEBE</color>
+    <color name="textInputColor">#333333</color>
 </resources>

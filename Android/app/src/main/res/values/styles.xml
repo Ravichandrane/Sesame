@@ -1,8 +1,23 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppTheme" parent="AppTheme.Base">
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/accentColor</item>
+    </style>
+
+    <style name="MainViewToolBar" parent="ThemeOverlay.AppCompat.Light">
+      <item name="android:textColorPrimary">@color/textColorPrimary</item>
+      <item name="android:textColorSecondary">@color/accentColor</item>
+    </style>
+
+    <style name="LoginViewEditText" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">@color/loginAccentColor</item>
+    </style>
+
 
 </resources>

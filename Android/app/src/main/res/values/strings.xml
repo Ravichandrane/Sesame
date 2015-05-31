@@ -1,38 +1,43 @@
 <resources>
     <string name="app_name">Sesame</string>
 
-    <string name="stat_label">Etat : Fermé</string>
+    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-    <string name="action_add">Nouveau utilisateur</string>
-    <string name="action_rang">Nouveau profil</string>
 
+    <!-- LoginActivity string -->
     <string name="title_activity_login">Login</string>
-    <string name="login_title">Sesame</string>
+    <string name="name_hint">Nom</string>
     <string name="password_hint">Mot de passe</string>
+    <string name="signin_text">Se connecter</string>
+
+    <!-- MainActivity string -->
+    <string name="door_state_text">Etat : Fermé</string>
+    <string name="last_opened_text">Dernière ouverture :</string>
+    <string name="info_text">Ce matin à 8h24 par Meghan</string>
+
+    <!-- NewUserActivity string -->
+    <string name="title_activity_new_user">Nouveau utilisateur</string>
+    <string name="userfirstname_hint">Prénom</string>
     <string name="email_hint">Email</string>
-    <string name="signin_label">Se connecter</string>
 
-    <string name="title_activity_add_user">Utilisateurs</string>
-    <string name="username_hint">Nom</string>
-    <string name="userFirstName_hint">Prénom</string>
+    <!-- DrawerNavigation string -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="usernaem_nav">Ravi Rajendran</string>
+    <string name="email_nav">rajendran.ravichandrane@gmail.com</string>
 
-    <string name="title_activity_new_profil">Nouveau profil</string>
-    <string name="rang_hint">Nom du rang</string>
-    <string name="textTimeSlot">Rayon pour ouverture automatique</string>
+    <!-- Menu string -->
+    <string name="action_addUser">Nouveau utilisateur</string>
 
-    <string name="title_activity_open_message">Garage ouvert</string>
-    <string name="openGarageText">Ouverture en cours</string>
+    <!-- Error message string -->
+    <string name="error_title">Une erreur est survenue :(</string>
+    <string name="error_message">Veuillez remplir les champs</string>
+    <string name="dialog_error_message">Veuillez ressayer encore.</string>
+    <string name="error_cancelMsg">OK</string>
 
-    <string name="title_activity_close_message">Close</string>
-    <string name="closeGarageText">Ouverture non autorisée</string>
-    <string name="textClose">Vous n’êtes pas autorisé à ouvrir le garage. Merci de contacter l’administrateur du garage pour plus d’informations.</string>
-    <string name="title_activity_add_new_profil">Nouveau profil</string>
 
-    <string name="error_title">Oops ! Something wrong :(</string>
-    <string name="error_message">Please make sure to fill all input</string>
-    <string name="error_cancelMsg">Ok</string>
 
-    <string name="hello_world">Hello world!</string>
 
 </resources>

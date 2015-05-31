@@ -1,9 +1,9 @@
 package fr.ravichandrane.sesame.Controller;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,12 +16,11 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import fr.ravichandrane.sesame.R;
 
+public class LoginActivity extends AppCompatActivity {
 
-public class LoginActivity extends Activity {
-
-    @InjectView(R.id.emailField) EditText mEmail;
-    @InjectView(R.id.passwordField) EditText mPassword;
-    @InjectView(R.id.signinButton) Button mSignin;
+    @InjectView(R.id.username) EditText mUsername;
+    @InjectView(R.id.userpassword) EditText mUserpassword;
+    @InjectView(R.id.signInButton) Button mSiginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +28,11 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
 
-        mSignin.setOnClickListener(new View.OnClickListener() {
+        mSiginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = mEmail.getText().toString();
-                String password = mPassword.getText().toString();
+                String username = mUsername.getText().toString();
+                String password = mUserpassword.getText().toString();
 
                 username = username.trim();
                 password = password.trim();
@@ -70,12 +69,10 @@ public class LoginActivity extends Activity {
                     });
                 }
 
-
             }
         });
 
 
     }
-
 
 }
