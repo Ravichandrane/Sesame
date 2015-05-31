@@ -22,6 +22,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Controller.FoyerActivity"
+            android:label="@string/title_activity_foyer"
+            android:theme="@style/Theme.AppCompat.Light" >
+        </activity>
+        <activity
             android:name=".Controller.LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
@@ -36,10 +41,18 @@
         <activity
             android:name=".Controller.NewProfilActivity"
             android:label="@string/title_activity_new_profil"
-            android:parentActivityName=".Controller.MainActivity">
+            android:parentActivityName=".Controller.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Controller.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Controller.OpenActivity"
+            android:label="@string/title_activity_open" >
+        </activity>
+        <activity
+            android:name=".Controller.CloseActivity"
+            android:label="@string/title_activity_close" >
         </activity>
     </application>
 

@@ -8,4 +8,8 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="OpenView" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkOpen</item>
+    </style>
+
 </resources>

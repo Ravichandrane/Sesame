@@ -5,6 +5,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="FoyerActivityTheme" parent="FoyerActivityTheme">
+
+    </style>
+
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/accentColor</item>
@@ -17,6 +21,10 @@
 
     <style name="LoginViewEditText" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorAccent">@color/loginAccentColor</item>
+    </style>
+
+    <style name="OpenView" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkOpen</item>
     </style>
 
 

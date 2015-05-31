@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:theme="@style/OpenView"
+                android:background="@color/accentColor"
+                tools:context="fr.ravichandrane.sesame.Controller.OpenActivity">
+
+    <TextView
+        android:id="@+id/textOpenGarage"
+        android:text="Ouverture en cours"
+        android:layout_width="243dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        android:textColor="@android:color/white"
+        android:textSize="34sp"
+        android:fontFamily="sans-serif"/>
+
+    <TextView
+        android:layout_width="220.5dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textOpenGarage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="89.5dp"
+        android:text="Votre garage est en cours d'ouverture"
+        android:textColor="@color/textAlpha"
+        android:textSize="16sp"/>
+
+</RelativeLayout>

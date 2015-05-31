@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
+        //Intent intent = new Intent(MainActivity.this, FoyerActivity.class);
+        //startActivity(intent);
+
         //ParseUser.logOut();
 
         ParseUser currentuser = ParseUser.getCurrentUser();
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         mButtonOpenDoor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NewProfilActivity.class);
+                Intent intent = new Intent(MainActivity.this, CloseActivity.class);
                 startActivity(intent);
             }
         });

@@ -10,5 +10,4 @@ public class Api {
     private static OkHttpClient client = new OkHttpClient();
     private static String stateUrl = "http://raspberry.pierre-olivier.fr:3000/garage/status";
 
-
 }
