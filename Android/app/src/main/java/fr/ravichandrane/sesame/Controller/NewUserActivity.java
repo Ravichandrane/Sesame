@@ -53,16 +53,13 @@ public class NewUserActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
         if (id == R.id.action_addUser){
             String username = mUsername.getText().toString();
             String userfirstname = mUserfirstname.getText().toString();
             String useremail = mUsermail.getText().toString();
             String password = mPassword.getText().toString();
 
-            username = useremail.trim();
+            username = username.trim();
             userfirstname = userfirstname.trim();
             useremail = useremail.trim();
             password = password.trim();
@@ -77,9 +74,9 @@ public class NewUserActivity extends AppCompatActivity {
             }else{
                 ParseUser newUser = new ParseUser();
                 newUser.setUsername(username);
+                newUser.put("userfirstname", userfirstname);
                 newUser.setEmail(useremail);
                 newUser.setPassword(password);
-                newUser.put("userfirstname", userfirstname);
 
                 newUser.signUpInBackground(new SignUpCallback() {
                     @Override
@@ -89,7 +86,6 @@ public class NewUserActivity extends AppCompatActivity {
                             mUserfirstname.setText("");
                             mUsermail.setText("");
                             mPassword.setText("");
-
                             Toast.makeText(getApplicationContext(), "Nouveau utilisateur ajouté", Toast.LENGTH_LONG).show();
                         }else{
                             AlertDialog.Builder builder = new AlertDialog.Builder(NewUserActivity.this)

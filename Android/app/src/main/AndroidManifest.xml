@@ -28,6 +28,14 @@
         <activity
             android:name=".Controller.NewUserActivity"
             android:label="@string/title_activity_new_user"
+            android:parentActivityName=".Controller.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Controller.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Controller.NewProfilActivity"
+            android:label="@string/title_activity_new_profil"
             android:parentActivityName=".Controller.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

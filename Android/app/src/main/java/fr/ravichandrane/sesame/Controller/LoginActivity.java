@@ -18,7 +18,7 @@ import fr.ravichandrane.sesame.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    @InjectView(R.id.username) EditText mUsername;
+    @InjectView(R.id.userfirstname) EditText mUsername;
     @InjectView(R.id.userpassword) EditText mUserpassword;
     @InjectView(R.id.signInButton) Button mSiginButton;
 

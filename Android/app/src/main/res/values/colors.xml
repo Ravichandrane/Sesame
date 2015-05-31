@@ -7,6 +7,7 @@
 
     <color name="backgroundColor">#ffffff</color>
     <color name="loginAccentColor">#717897</color>
+    <color name="defaultText">#BBBBBB</color>
 
     <!-- New user color -->
     <color name="textHintColor">#BEBEBE</color>

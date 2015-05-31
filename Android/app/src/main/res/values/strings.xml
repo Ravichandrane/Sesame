@@ -4,11 +4,15 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Activity hint -->
+    <string name="name_hint">Nom</string>
+    <string name="userfirstname_hint">Prénom</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="rank_hint">Nom du rang</string>
 
     <!-- LoginActivity string -->
     <string name="title_activity_login">Login</string>
-    <string name="name_hint">Nom</string>
-    <string name="password_hint">Mot de passe</string>
     <string name="signin_text">Se connecter</string>
 
     <!-- MainActivity string -->
@@ -18,8 +22,13 @@
 
     <!-- NewUserActivity string -->
     <string name="title_activity_new_user">Nouveau utilisateur</string>
-    <string name="userfirstname_hint">Prénom</string>
-    <string name="email_hint">Email</string>
+    <string name="action_addUser">Nouveau utilisateur</string>
+
+    <!-- NewProfil string -->
+    <string name="title_activity_new_profil">Nouveau Profil</string>
+    <string name="action_addNewProfil">Nouveau profil</string>
+    <string name="textTime">Plage horaire pour l\'ouverture</string>
+    <string name="textRadius">Rayon pour ouverture automatique (en mètres)</string>
 
     <!-- DrawerNavigation string -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -28,16 +37,11 @@
     <string name="usernaem_nav">Ravi Rajendran</string>
     <string name="email_nav">rajendran.ravichandrane@gmail.com</string>
 
-    <!-- Menu string -->
-    <string name="action_addUser">Nouveau utilisateur</string>
-
     <!-- Error message string -->
     <string name="error_title">Une erreur est survenue :(</string>
     <string name="error_message">Veuillez remplir les champs</string>
     <string name="dialog_error_message">Veuillez ressayer encore.</string>
     <string name="error_cancelMsg">OK</string>
-
-
 
 
 </resources>

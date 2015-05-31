@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
+        //ParseUser.logOut();
+
         ParseUser currentuser = ParseUser.getCurrentUser();
         if(currentuser == null){
             Intent loginIntent = new Intent(this, LoginActivity.class);
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
             loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(loginIntent);
         }
+
+        //Log.v("Username :", currentuser.getUsername() );
 
         //Setup the toolbar
         mToolbar = (Toolbar) findViewById(R.id.toolBar);
@@ -54,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         mButtonOpenDoor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NewUserActivity.class);
+                Intent intent = new Intent(MainActivity.this, NewProfilActivity.class);
                 startActivity(intent);
             }
         });
