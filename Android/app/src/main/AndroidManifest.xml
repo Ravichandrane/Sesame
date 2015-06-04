@@ -24,15 +24,18 @@
         <activity
             android:name=".Controller.FoyerActivity"
             android:label="@string/title_activity_foyer"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light" >
         </activity>
         <activity
             android:name=".Controller.LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Controller.NewUserActivity"
             android:label="@string/title_activity_new_user"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Controller.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -41,6 +44,7 @@
         <activity
             android:name=".Controller.NewProfilActivity"
             android:label="@string/title_activity_new_profil"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Controller.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -48,11 +52,13 @@
         </activity>
         <activity
             android:name=".Controller.OpenActivity"
-            android:label="@string/title_activity_open" >
+            android:label="@string/title_activity_open"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".Controller.CloseActivity"
-            android:label="@string/title_activity_close" >
+            android:label="@string/title_activity_close"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

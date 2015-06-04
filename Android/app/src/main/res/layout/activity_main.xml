@@ -7,60 +7,29 @@
     android:layout_height="match_parent">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        android:orientation="vertical">
 
-        <include
-            android:id="@+id/toolBar"
-            layout="@layout/tool_bar" />
-
-        <TextView
-            android:id="@+id/doorState"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/toolBar"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/container_toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="82dp"
-            android:text="@string/door_state_text"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:fontFamily="sans-serif-medium"/>
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/buttonOpenDoor"
-            android:layout_below="@id/doorState"
-            android:layout_width="wrap_content"
-            android:layout_height="168dp"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="46dp"
-            android:src="@drawable/button_open"
-            android:adjustViewBounds="true"/>
+            <include
+                layout="@layout/tool_bar" />
 
-        <TextView
-            android:id="@+id/lastOpenedText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/buttonOpenDoor"
-            android:layout_marginTop="46dp"
-            android:text="@string/last_opened_text"
-            android:textColor="#9A9A9A"
-            android:textSize="14sp"
-            android:fontFamily="sans-serif-medium"/>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/infoOpenedText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/lastOpenedText"
-            android:text="@string/info_text"
-            android:textColor="#9A9A9A"/>
+        <FrameLayout
+            android:id="@+id/container_body"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <fragment
         android:id="@+id/fragment_navigation_drawer"

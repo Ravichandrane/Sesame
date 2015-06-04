@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     @InjectView(R.id.userfirstname) EditText mUsername;
     @InjectView(R.id.userpassword) EditText mUserpassword;
     @InjectView(R.id.signInButton) Button mSiginButton;
+    @InjectView(R.id.createAccoutn) Button mCreateAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                             .setPositiveButton(R.string.error_cancelMsg, null);
                     AlertDialog dialog = builder.create();
                     dialog.show();
-                }else{
+                } else {
                     //Login
                     ParseUser.logInInBackground(username, password, new LogInCallback() {
                         @Override
@@ -69,6 +70,14 @@ public class LoginActivity extends AppCompatActivity {
                     });
                 }
 
+            }
+        });
+
+        mCreateAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent createAccountIntent = new Intent(LoginActivity.this, NewUserActivity.class);
+                startActivity(createAccountIntent);
             }
         });
 

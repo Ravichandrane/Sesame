@@ -57,6 +57,16 @@
             android:textColor="@color/accentColor"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/createAccoutn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@null"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:text="@string/create_account_text"/>
+
     </LinearLayout>
 
 

@@ -179,7 +179,7 @@ public class FoyerActivity extends AppCompatActivity implements ActionBar.TabLis
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_foyer, container, false);
+            View rootView = inflater.inflate(R.layout.foyer_fragment, container, false);
             return rootView;
         }
     }
