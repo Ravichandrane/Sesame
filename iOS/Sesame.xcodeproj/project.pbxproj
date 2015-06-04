@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B41A574D005BF875EA3AB7B /* Pods_Sesame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B814A762959356F5402C029D /* Pods_Sesame.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9B10FA941B1DA5380033AF72 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10FA931B1DA5380033AF72 /* UsersViewController.swift */; };
+		9B1B0C031B1E147D00639B95 /* UserAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1B0C021B1E147D00639B95 /* UserAddViewController.swift */; };
+		9B1B0C061B1E1D1300639B95 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1B0C051B1E1D1300639B95 /* UserDetailsViewController.swift */; };
+		9B3C500A1B1EE86B003D07FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C50091B1EE86B003D07FB /* User.swift */; };
+		9B465B861B189E27001723C5 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B465B851B189E27001723C5 /* Tools.swift */; };
+		9B8E95401B187826008E855D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8E953F1B187826008E855D /* API.swift */; };
+		9BB07E101B18605900D56665 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB07E0F1B18605900D56665 /* AudioToolbox.framework */; };
+		9BB07E121B18605F00D56665 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB07E111B18605F00D56665 /* CFNetwork.framework */; };
+		9BB07E141B18606700D56665 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB07E131B18606700D56665 /* CoreGraphics.framework */; };
+		9BB07E161B18607A00D56665 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB07E151B18607A00D56665 /* CoreLocation.framework */; };
+		9BB07E181B18608800D56665 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB07E171B18608800D56665 /* MobileCoreServices.framework */; };
+		9BB07E1A1B18608F00D56665 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB07E191B18608F00D56665 /* QuartzCore.framework */; };
+		9BB07E1C1B18609400D56665 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB07E1B1B18609400D56665 /* Security.framework */; };
+		9BB07E201B1860A200D56665 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB07E1F1B1860A200D56665 /* SystemConfiguration.framework */; };
+		9BB07E221B1860AC00D56665 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB07E211B1860AC00D56665 /* libz.dylib */; };
+		9BB07E241B1860B600D56665 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB07E231B1860B600D56665 /* libsqlite3.dylib */; };
+		9BEC5A691B204A3A003210AC /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEC5A681B204A3A003210AC /* Geotification.swift */; };
+		9BEC5A6B1B20783B003210AC /* GarageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEC5A6A1B20783B003210AC /* GarageEditViewController.swift */; };
+		9BEFA03C1B176CDD0037AA68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEFA03B1B176CDD0037AA68 /* AppDelegate.swift */; };
+		9BEFA03E1B176CDD0037AA68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEFA03D1B176CDD0037AA68 /* ViewController.swift */; };
+		9BEFA0411B176CDD0037AA68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BEFA03F1B176CDD0037AA68 /* Main.storyboard */; };
+		9BEFA0431B176CDD0037AA68 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BEFA0421B176CDD0037AA68 /* Images.xcassets */; };
+		9BEFA0461B176CDD0037AA68 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BEFA0441B176CDD0037AA68 /* LaunchScreen.xib */; };
+		9BEFA0521B176CDD0037AA68 /* SesameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEFA0511B176CDD0037AA68 /* SesameTests.swift */; };
+		9BEFA05C1B176E970037AA68 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEFA05B1B176E970037AA68 /* LoginViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BEFA04C1B176CDD0037AA68 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BEFA02E1B176CDD0037AA68 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BEFA0351B176CDD0037AA68;
+			remoteInfo = Sesame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9B10FA931B1DA5380033AF72 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		9B1B0C021B1E147D00639B95 /* UserAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAddViewController.swift; sourceTree = "<group>"; };
+		9B1B0C051B1E1D1300639B95 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		9B3C50091B1EE86B003D07FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9B465B851B189E27001723C5 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		9B8E953F1B187826008E855D /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		9BB07E0F1B18605900D56665 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9BB07E111B18605F00D56665 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9BB07E131B18606700D56665 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9BB07E151B18607A00D56665 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9BB07E171B18608800D56665 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		9BB07E191B18608F00D56665 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9BB07E1B1B18609400D56665 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9BB07E1F1B1860A200D56665 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9BB07E211B1860AC00D56665 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9BB07E231B1860B600D56665 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		9BEC5A681B204A3A003210AC /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
+		9BEC5A6A1B20783B003210AC /* GarageEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarageEditViewController.swift; sourceTree = "<group>"; };
+		9BEFA0361B176CDD0037AA68 /* Sesame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sesame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BEFA03A1B176CDD0037AA68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BEFA03B1B176CDD0037AA68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9BEFA03D1B176CDD0037AA68 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9BEFA0401B176CDD0037AA68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9BEFA0421B176CDD0037AA68 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9BEFA0451B176CDD0037AA68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9BEFA04B1B176CDD0037AA68 /* SesameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SesameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BEFA0501B176CDD0037AA68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BEFA0511B176CDD0037AA68 /* SesameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesameTests.swift; sourceTree = "<group>"; };
+		9BEFA05B1B176E970037AA68 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9C49A5499392A951C4E49DDD /* Pods-Sesame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sesame.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sesame/Pods-Sesame.release.xcconfig"; sourceTree = "<group>"; };
+		AB698679A189A72E00951436 /* Pods-Sesame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sesame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sesame/Pods-Sesame.debug.xcconfig"; sourceTree = "<group>"; };
+		B814A762959356F5402C029D /* Pods_Sesame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sesame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BEFA0331B176CDD0037AA68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BB07E241B1860B600D56665 /* libsqlite3.dylib in Frameworks */,
+				9BB07E221B1860AC00D56665 /* libz.dylib in Frameworks */,
+				9BB07E201B1860A200D56665 /* SystemConfiguration.framework in Frameworks */,
+				9BB07E1C1B18609400D56665 /* Security.framework in Frameworks */,
+				9BB07E1A1B18608F00D56665 /* QuartzCore.framework in Frameworks */,
+				9BB07E181B18608800D56665 /* MobileCoreServices.framework in Frameworks */,
+				9BB07E161B18607A00D56665 /* CoreLocation.framework in Frameworks */,
+				9BB07E141B18606700D56665 /* CoreGraphics.framework in Frameworks */,
+				9BB07E121B18605F00D56665 /* CFNetwork.framework in Frameworks */,
+				9BB07E101B18605900D56665 /* AudioToolbox.framework in Frameworks */,
+				5B41A574D005BF875EA3AB7B /* Pods_Sesame.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BEFA0481B176CDD0037AA68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9B8E95411B187B9E008E855D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B465B851B189E27001723C5 /* Tools.swift */,
+				9BEC5A681B204A3A003210AC /* Geotification.swift */,
+				9B3C50091B1EE86B003D07FB /* User.swift */,
+				9B8E953F1B187826008E855D /* API.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9B8E95421B187BAE008E855D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B1B0C051B1E1D1300639B95 /* UserDetailsViewController.swift */,
+				9BEFA03D1B176CDD0037AA68 /* ViewController.swift */,
+				9B10FA931B1DA5380033AF72 /* UsersViewController.swift */,
+				9BEFA05B1B176E970037AA68 /* LoginViewController.swift */,
+				9B1B0C021B1E147D00639B95 /* UserAddViewController.swift */,
+				9BEC5A6A1B20783B003210AC /* GarageEditViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9BEFA02D1B176CDD0037AA68 = {
+			isa = PBXGroup;
+			children = (
+				9BEFA0381B176CDD0037AA68 /* Sesame */,
+				9BEFA04E1B176CDD0037AA68 /* SesameTests */,
+				9BEFA0371B176CDD0037AA68 /* Products */,
+				9BB07E231B1860B600D56665 /* libsqlite3.dylib */,
+				9BB07E211B1860AC00D56665 /* libz.dylib */,
+				9BB07E1F1B1860A200D56665 /* SystemConfiguration.framework */,
+				9BB07E1B1B18609400D56665 /* Security.framework */,
+				9BB07E191B18608F00D56665 /* QuartzCore.framework */,
+				9BB07E171B18608800D56665 /* MobileCoreServices.framework */,
+				9BB07E151B18607A00D56665 /* CoreLocation.framework */,
+				9BB07E131B18606700D56665 /* CoreGraphics.framework */,
+				9BB07E111B18605F00D56665 /* CFNetwork.framework */,
+				9BB07E0F1B18605900D56665 /* AudioToolbox.framework */,
+				E74BEE65063621A9E6AD41D4 /* Pods */,
+				F255E9813C3445A3CF62DC74 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9BEFA0371B176CDD0037AA68 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BEFA0361B176CDD0037AA68 /* Sesame.app */,
+				9BEFA04B1B176CDD0037AA68 /* SesameTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BEFA0381B176CDD0037AA68 /* Sesame */ = {
+			isa = PBXGroup;
+			children = (
+				9BEFA03B1B176CDD0037AA68 /* AppDelegate.swift */,
+				9B8E95421B187BAE008E855D /* Controller */,
+				9B8E95411B187B9E008E855D /* Model */,
+				9BEFA03F1B176CDD0037AA68 /* Main.storyboard */,
+				9BEFA0421B176CDD0037AA68 /* Images.xcassets */,
+				9BEFA0441B176CDD0037AA68 /* LaunchScreen.xib */,
+				9BEFA0391B176CDD0037AA68 /* Supporting Files */,
+			);
+			path = Sesame;
+			sourceTree = "<group>";
+		};
+		9BEFA0391B176CDD0037AA68 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BEFA03A1B176CDD0037AA68 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BEFA04E1B176CDD0037AA68 /* SesameTests */ = {
+			isa = PBXGroup;
+			children = (
+				9BEFA0511B176CDD0037AA68 /* SesameTests.swift */,
+				9BEFA04F1B176CDD0037AA68 /* Supporting Files */,
+			);
+			path = SesameTests;
+			sourceTree = "<group>";
+		};
+		9BEFA04F1B176CDD0037AA68 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BEFA0501B176CDD0037AA68 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E74BEE65063621A9E6AD41D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB698679A189A72E00951436 /* Pods-Sesame.debug.xcconfig */,
+				9C49A5499392A951C4E49DDD /* Pods-Sesame.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F255E9813C3445A3CF62DC74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B814A762959356F5402C029D /* Pods_Sesame.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BEFA0351B176CDD0037AA68 /* Sesame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BEFA0551B176CDD0037AA68 /* Build configuration list for PBXNativeTarget "Sesame" */;
+			buildPhases = (
+				CBBA4FBAC242BC7C2E947253 /* Check Pods Manifest.lock */,
+				9BEFA0321B176CDD0037AA68 /* Sources */,
+				9BEFA0331B176CDD0037AA68 /* Frameworks */,
+				9BEFA0341B176CDD0037AA68 /* Resources */,
+				B20C4B9BD2DD47EEC8EDF87D /* Embed Pods Frameworks */,
+				722CDE85BE131C78F38C5CFC /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sesame;
+			productName = Sesame;
+			productReference = 9BEFA0361B176CDD0037AA68 /* Sesame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9BEFA04A1B176CDD0037AA68 /* SesameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BEFA0581B176CDD0037AA68 /* Build configuration list for PBXNativeTarget "SesameTests" */;
+			buildPhases = (
+				9BEFA0471B176CDD0037AA68 /* Sources */,
+				9BEFA0481B176CDD0037AA68 /* Frameworks */,
+				9BEFA0491B176CDD0037AA68 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BEFA04D1B176CDD0037AA68 /* PBXTargetDependency */,
+			);
+			name = SesameTests;
+			productName = SesameTests;
+			productReference = 9BEFA04B1B176CDD0037AA68 /* SesameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BEFA02E1B176CDD0037AA68 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Pierre-Olivier POTIER";
+				TargetAttributes = {
+					9BEFA0351B176CDD0037AA68 = {
+						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 99D895TFL2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
+					9BEFA04A1B176CDD0037AA68 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 9BEFA0351B176CDD0037AA68;
+					};
+				};
+			};
+			buildConfigurationList = 9BEFA0311B176CDD0037AA68 /* Build configuration list for PBXProject "Sesame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9BEFA02D1B176CDD0037AA68;
+			productRefGroup = 9BEFA0371B176CDD0037AA68 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BEFA0351B176CDD0037AA68 /* Sesame */,
+				9BEFA04A1B176CDD0037AA68 /* SesameTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BEFA0341B176CDD0037AA68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BEFA0411B176CDD0037AA68 /* Main.storyboard in Resources */,
+				9BEFA0461B176CDD0037AA68 /* LaunchScreen.xib in Resources */,
+				9BEFA0431B176CDD0037AA68 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BEFA0491B176CDD0037AA68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		722CDE85BE131C78F38C5CFC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sesame/Pods-Sesame-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B20C4B9BD2DD47EEC8EDF87D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sesame/Pods-Sesame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBBA4FBAC242BC7C2E947253 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BEFA0321B176CDD0037AA68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B10FA941B1DA5380033AF72 /* UsersViewController.swift in Sources */,
+				9BEFA05C1B176E970037AA68 /* LoginViewController.swift in Sources */,
+				9BEFA03E1B176CDD0037AA68 /* ViewController.swift in Sources */,
+				9BEC5A691B204A3A003210AC /* Geotification.swift in Sources */,
+				9BEFA03C1B176CDD0037AA68 /* AppDelegate.swift in Sources */,
+				9B465B861B189E27001723C5 /* Tools.swift in Sources */,
+				9B3C500A1B1EE86B003D07FB /* User.swift in Sources */,
+				9BEC5A6B1B20783B003210AC /* GarageEditViewController.swift in Sources */,
+				9B1B0C031B1E147D00639B95 /* UserAddViewController.swift in Sources */,
+				9B8E95401B187826008E855D /* API.swift in Sources */,
+				9B1B0C061B1E1D1300639B95 /* UserDetailsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BEFA0471B176CDD0037AA68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BEFA0521B176CDD0037AA68 /* SesameTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BEFA04D1B176CDD0037AA68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BEFA0351B176CDD0037AA68 /* Sesame */;
+			targetProxy = 9BEFA04C1B176CDD0037AA68 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9BEFA03F1B176CDD0037AA68 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BEFA0401B176CDD0037AA68 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9BEFA0441B176CDD0037AA68 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BEFA0451B176CDD0037AA68 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9BEFA0531B176CDD0037AA68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9BEFA0541B176CDD0037AA68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9BEFA0561B176CDD0037AA68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB698679A189A72E00951436 /* Pods-Sesame.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Sesame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9BEFA0571B176CDD0037AA68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C49A5499392A951C4E49DDD /* Pods-Sesame.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Sesame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9BEFA0591B176CDD0037AA68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SesameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sesame.app/Sesame";
+			};
+			name = Debug;
+		};
+		9BEFA05A1B176CDD0037AA68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SesameTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sesame.app/Sesame";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BEFA0311B176CDD0037AA68 /* Build configuration list for PBXProject "Sesame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BEFA0531B176CDD0037AA68 /* Debug */,
+				9BEFA0541B176CDD0037AA68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BEFA0551B176CDD0037AA68 /* Build configuration list for PBXNativeTarget "Sesame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BEFA0561B176CDD0037AA68 /* Debug */,
+				9BEFA0571B176CDD0037AA68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BEFA0581B176CDD0037AA68 /* Build configuration list for PBXNativeTarget "SesameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BEFA0591B176CDD0037AA68 /* Debug */,
+				9BEFA05A1B176CDD0037AA68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BEFA02E1B176CDD0037AA68 /* Project object */;
+}

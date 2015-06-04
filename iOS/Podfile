@@ -1,0 +1,13 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '8.0'
+use_frameworks!
+
+target 'Sesame' do
+	pod 'Alamofire'
+	pod 'Parse'
+end
+
+target 'SesameTests' do
+
+end
+
