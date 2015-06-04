@@ -32,9 +32,10 @@ public class Api {
     }
 
     public void toggleDoor(final ApiCallback cb){
-        ParseUser currentuser = ParseUser.getCurrentUser();
+        ParseUser User = ParseUser.getCurrentUser();
+        String userId = (String) User.get("userfirstname");
         String url = "http://raspberry.pierre-olivier.fr:3000/garage/toggle";
-        RequestBody formBody = new FormEncodingBuilder().add("authenticate", currentuser.getUsername()).build();
+        RequestBody formBody = new FormEncodingBuilder().add("authenticate", userId).build();
         Request request = new Request.Builder().url(url).post(formBody).build();
         String onError = "Impossible d'ouvrir";
         call(request, onError, cb);

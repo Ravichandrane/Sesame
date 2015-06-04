@@ -7,6 +7,7 @@ public class HomeModel {
     private String mLasterUser;
     private String mStatusText;
     private String mTime;
+    private int mStatusCode;
 
     public String getLasterUser() {
         return mLasterUser;
@@ -31,4 +32,5 @@ public class HomeModel {
     public void setTime(String time) {
         mTime = time;
     }
+
 }

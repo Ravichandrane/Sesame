@@ -19,12 +19,12 @@
         android:fontFamily="sans-serif"/>
 
     <TextView
+        android:id="@+id/msgOpenGarage"
         android:layout_width="220.5dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/textOpenGarage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="89.5dp"
-        android:text="Votre garage est en cours d'ouverture"
         android:textColor="@color/textAlpha"
         android:textSize="16sp"/>
 
