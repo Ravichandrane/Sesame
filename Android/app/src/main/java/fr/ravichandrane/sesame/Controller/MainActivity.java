@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
 
             displayView(0);
         }
-
     }
 
     private void login() {

@@ -22,6 +22,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import fr.ravichandrane.sesame.Controller.OpenActivity;
+import fr.ravichandrane.sesame.Helper.dateFromString;
 import fr.ravichandrane.sesame.Model.HomeModel;
 import fr.ravichandrane.sesame.Model.StatusCodeModel;
 import fr.ravichandrane.sesame.Network.Api;
@@ -94,7 +95,6 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return rootView;
     }
-
     private void getStatus() {
         Api api = new Api();
         api.getState(new Api.ApiCallback() {
@@ -179,8 +179,9 @@ public class HomeFragment extends Fragment {
     }
 
     private void updateData() {
+        dateFromString date = new dateFromString();
         mStatus.setText("État : " + mHomeModel.getStatusText());
-        mInfoOpenedText.setText("À " + mHomeModel.getTime() + " par " + mHomeModel.getLasterUser());
+        mInfoOpenedText.setText("À " + date.datetoString(mHomeModel.getTime()) + " par " + mHomeModel.getLasterUser());
     }
 
     private StatusCodeModel getStatusCode(String jsonData) throws JSONException {
