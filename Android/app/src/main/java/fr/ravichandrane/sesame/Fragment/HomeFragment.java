@@ -32,6 +32,9 @@ import fr.ravichandrane.sesame.R;
  */
 public class HomeFragment extends Fragment {
 
+    private Timer timer;
+    private TimerTask timerTask;
+
     private HomeModel mHomeModel;
     private StatusCodeModel mStatusCodeModel;
 
@@ -39,9 +42,30 @@ public class HomeFragment extends Fragment {
     protected TextView mInfoOpenedText;
     protected ImageView mButtonOpen;
 
-
     public HomeFragment() {
         // Required empty public constructor
+    }
+
+    public void onPause(){
+        super.onPause();
+        timer.cancel();
+    }
+
+    public void onResume(){
+        super.onResume();
+        try {
+            timer = new Timer();
+            timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    //Download file here and refresh
+                    getStatus();
+                }
+            };
+            timer.schedule(timerTask, 1000, 1000);
+        } catch (IllegalStateException e){
+            android.util.Log.i("Damn", "resume error");
+        }
     }
 
     @Override
@@ -57,13 +81,8 @@ public class HomeFragment extends Fragment {
         mInfoOpenedText = (TextView) rootView.findViewById(R.id.infoOpenedText);
         mButtonOpen = (ImageView) rootView.findViewById(R.id.buttonOpenDoor);
 
-        new Timer().scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                getStatus();
-            }
-        }, 0, 1000);
 
+        getStatus();
 
         mButtonOpen.setOnClickListener(new View.OnClickListener() {
             @Override
