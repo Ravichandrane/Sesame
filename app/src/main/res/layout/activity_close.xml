@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                tools:context="fr.ravichandrane.sesame.Controller.CloseActivity">
+
+    <TextView
+        android:id="@+id/titleDeniedGarage"
+        android:text="@string/title_denied_garage"
+        android:layout_width="220.5dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        android:textColor="@android:color/white"
+        android:textSize="34sp"/>
+
+    <TextView
+        android:id="@+id/closeGarageText"
+        android:layout_width="220.5dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/titleDeniedGarage"
+        android:layout_marginTop="89.5dp"
+        android:textColor="@color/textAlpha"
+        android:text="@string/text_denied"
+        android:textSize="16sp"
+        android:lineSpacingExtra="5sp"
+        android:textStyle="normal"
+        android:fontFamily="sans-serif" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:src="@drawable/back"
+        android:layout_marginLeft="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="72dp"/>
+
+</RelativeLayout>

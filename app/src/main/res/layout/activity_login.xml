@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:theme="@style/LoginViewEditText"
+                tools:context="fr.ravichandrane.sesame.Controller.LoginActivity">
+
+    <TextView
+        android:id="@+id/appName"
+        android:text="@string/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:textStyle="normal|bold"/>
+
+    <LinearLayout
+        android:layout_below="@id/appName"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="90dp"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:id="@+id/userfirstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name_hint"
+            android:backgroundTint="@color/loginAccentColor"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white"/>
+
+        <EditText
+            android:id="@+id/userpassword"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="@string/password_hint"
+            android:backgroundTint="@color/loginAccentColor"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif"/>
+
+        <Button
+            android:id="@+id/signInButton"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="50dp"
+            android:background="@android:color/white"
+            android:text="@string/signin_text"
+            android:textColor="@color/accentColor"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/createAccoutn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@null"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:text="@string/create_account_text"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

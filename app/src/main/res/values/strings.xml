@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">Sesame</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Activity hint -->
+    <string name="name_hint">Nom</string>
+    <string name="userfirstname_hint">Prénom</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="nomGarage_hint">Nom du garage</string>
+
+    <!-- LoginActivity string -->
+    <string name="title_activity_login">Login</string>
+    <string name="signin_text">Se connecter</string>
+
+    <!-- MainActivity string -->
+    <string name="door_state_text">Etat : Fermé</string>
+    <string name="last_opened_text">Dernière ouverture :</string>
+    <string name="info_text">Ce matin à 8h24 par Meghan</string>
+    <string name="title_activity_close">Fermeture</string>
+    <string name="title_denied_garage">Ouverture non autorisée</string>
+    <string name="text_denied">Vous n’êtes pas autorisé à ouvrir le garage. Merci de contacter l’administrateur du garage pour plus d’informations.</string>
+
+    <!-- OpenActivity string -->
+    <string name="msg_open">Votre garage est en cours d\'ouverture</string>
+    <string name="msg_close">Votre garage est en cours de fermeture</string>
+    <string name="txt_open">Ouverture en cours</string>
+    <string name="text_close">Fermeture en cours</string>
+
+    <!-- NewUserActivity string -->
+    <string name="title_activity_new_user">Nouveau utilisateur</string>
+    <string name="action_addUser">Nouveau utilisateur</string>
+
+    <!-- NewProfil string -->
+    <string name="action_edit">Edit</string>
+    <string name="title_activity_edit">Garage</string>
+    <string name="action_addNewProfil">Nouveau profil</string>
+    <string name="textTime">Plage horaire pour l\'ouverture</string>
+    <string name="textRadius">Rayon pour ouverture automatique (en mètres)</string>
+
+    <!-- DrawerNavigation string -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="usernaem_nav">Ravi Rajendran</string>
+    <string name="email_nav">rajendran.ravichandrane@gmail.com</string>
+
+    <!-- navigation drawer item labels  -->
+    <string name="nav_item_home">Accueil</string>
+    <string name="nav_item_foyer">Mon Foyer</string>
+    <string name="nav_item_mention">Mention légal</string>
+    <string name="nav_item_signup">Déconnexion</string>
+
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_home</item>
+        <item>@string/nav_item_foyer</item>
+        <item>@string/nav_item_mention</item>
+        <item>@string/nav_item_signup</item>
+    </string-array>
+
+    <string name="title_home">Accueil</string>
+    <string name="title_foyer">Mon Foyer</string>
+    <string name="title_mention">Mention légal</string>
+    <string name="title_signup">Déconnexion</string>
+
+
+    <!-- Error message string -->
+    <string name="error_title">Une erreur est survenue :(</string>
+    <string name="error_message">Veuillez remplir les champs</string>
+    <string name="dialog_error_message">Veuillez ressayer encore.</string>
+    <string name="error_cancelMsg">OK</string>
+    <string name="title_activity_foyer">Mon Foyer</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="title_activity_open">Open</string>
+    <string name="create_account_text">Créer un compte</string>
+    <string name="latitude">Latitude :</string>
+    <string name="longitude">Longitude :</string>
+    <string name="title_activity_main_activity2">MainActivity2Activity</string>
+
+
+</resources>
