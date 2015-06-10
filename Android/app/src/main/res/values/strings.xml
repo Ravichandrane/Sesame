@@ -9,7 +9,7 @@
     <string name="userfirstname_hint">Prénom</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Mot de passe</string>
-    <string name="rank_hint">Nom du rang</string>
+    <string name="nomGarage_hint">Nom du garage</string>
 
     <!-- LoginActivity string -->
     <string name="title_activity_login">Login</string>
@@ -34,7 +34,8 @@
     <string name="action_addUser">Nouveau utilisateur</string>
 
     <!-- NewProfil string -->
-    <string name="title_activity_new_profil">Nouveau Profil</string>
+    <string name="action_edit">Edit</string>
+    <string name="title_activity_edit">Garage</string>
     <string name="action_addNewProfil">Nouveau profil</string>
     <string name="textTime">Plage horaire pour l\'ouverture</string>
     <string name="textRadius">Rayon pour ouverture automatique (en mètres)</string>
@@ -78,7 +79,9 @@
 
     <string name="title_activity_open">Open</string>
     <string name="create_account_text">Créer un compte</string>
-
+    <string name="latitude">Latitude :</string>
+    <string name="longitude">Longitude :</string>
+    <string name="title_activity_main_activity2">MainActivity2Activity</string>
 
 
 </resources>

@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:name=".Network.Parse"
@@ -35,17 +37,17 @@
         <activity
             android:name=".Controller.NewUserActivity"
             android:label="@string/title_activity_new_user"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Controller.MainActivity" >
+            android:parentActivityName=".Controller.MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Controller.MainActivity" />
         </activity>
         <activity
-            android:name=".Controller.NewProfilActivity"
-            android:label="@string/title_activity_new_profil"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Controller.MainActivity" >
+            android:name=".Controller.EditActivity"
+            android:label="@string/title_activity_edit"
+            android:parentActivityName=".Controller.MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Controller.MainActivity" />
@@ -53,12 +55,12 @@
         <activity
             android:name=".Controller.OpenActivity"
             android:label="@string/title_activity_open"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Controller.CloseActivity"
             android:label="@string/title_activity_close"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
-
+        
         //ParseUser.logOut();
 
         ParseUser currentuser = ParseUser.getCurrentUser();
         if(currentuser == null){
             login();
         }else{
-            mUsernameNav.setText(currentuser.getUsername() +" "+currentuser.get("userfirstname"));
+            mUsernameNav.setText(currentuser.get("userfirstname") +" "+currentuser.get("userlastname"));
             mUseremailNav.setText(currentuser.getEmail());
 
             //Setup the toolbar

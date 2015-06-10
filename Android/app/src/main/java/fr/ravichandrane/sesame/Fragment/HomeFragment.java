@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,6 +43,9 @@ public class HomeFragment extends Fragment {
     protected TextView mStatus;
     protected TextView mInfoOpenedText;
     protected ImageView mButtonOpen;
+
+
+    Boolean flag=false;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -89,6 +93,16 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 openDoor();
+                Vibrator vibration = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                vibration.vibrate(400);
+                if(flag==false) {
+                    mButtonOpen.setImageResource(R.drawable.button_open);
+                    flag=true;
+                }
+                else{
+                    mButtonOpen.setImageResource(R.drawable.button_close);
+                    flag=false;
+                }
             }
         });
 
@@ -198,6 +212,8 @@ public class HomeFragment extends Fragment {
         startActivity.putExtra("msg", msg);
         startActivity(startActivity);
     }
+
+
 
     @Override
     public void onAttach(Activity activity) {

@@ -16,19 +16,17 @@ public class dateFromString {
     }
 
     public String datetoString(String time){
-        String inputText = time;
         DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         inputFormat.setTimeZone(TimeZone.getDefault());
         DateFormat outputFormat = new SimpleDateFormat("HH:mm");
         Date parsed = null;
         try {
-            parsed = inputFormat.parse(inputText);
+            parsed = inputFormat.parse(time);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String outputText = outputFormat.format(parsed);
 
-        return outputText;
+        return outputFormat.format(parsed);
     }
 
 }
