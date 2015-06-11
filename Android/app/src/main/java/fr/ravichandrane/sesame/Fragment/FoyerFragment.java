@@ -36,6 +36,11 @@ public class FoyerFragment extends Fragment{
         // Required empty public constructor
     }
 
+
+    public void onResume() {
+        super.onResume();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,19 +60,19 @@ public class FoyerFragment extends Fragment{
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
             public void done(List<ParseUser> users, ParseException e) {
-                if(e == null){
+                if (e == null) {
                     mUsers = users;
                     String[] userList = new String[mUsers.size()];
                     int i = 0;
-                    for (ParseUser user: mUsers){
-                        userList[i] = String.valueOf(user.get("userfirstname")) +" "+ user.get("userlastname");
+                    for (ParseUser user : mUsers) {
+                        userList[i] = String.valueOf(user.get("userfirstname")) + " " + user.get("userlastname");
                         i++;
                     }
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),
                             R.layout.custom_textview,
                             userList);
                     mListView.setAdapter(adapter);
-                }else{
+                } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext())
                             .setTitle(getString(R.string.error_title))
                             .setMessage(e.getMessage())
@@ -86,7 +91,6 @@ public class FoyerFragment extends Fragment{
         // Inflate the menu; this adds items to the action bar if it is present.
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_foyer, menu);
-
     }
 
     @Override
@@ -109,4 +113,7 @@ public class FoyerFragment extends Fragment{
     public void onDetach() {
         super.onDetach();
     }
+
+
+
 }

@@ -34,38 +34,25 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
-        
-        //ParseUser.logOut();
 
         ParseUser currentuser = ParseUser.getCurrentUser();
-        if(currentuser == null){
-            login();
-        }else{
-            mUsernameNav.setText(currentuser.get("userfirstname") +" "+currentuser.get("userlastname"));
-            mUseremailNav.setText(currentuser.getEmail());
+        mUsernameNav.setText(currentuser.get("userfirstname") +" "+currentuser.get("userlastname"));
+        mUseremailNav.setText(currentuser.getEmail());
 
-            //Setup the toolbar
-            mToolbar = (Toolbar) findViewById(R.id.app_bar);
-            setSupportActionBar(mToolbar);
+        //Setup the toolbar
+        mToolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(mToolbar);
 
-            //DrawerNavigation
-            mNavigationDrawerFragment = (NavigationDrawerFragment)
-                    getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
-            mNavigationDrawerFragment.setUp(R.id.fragment_navigation_drawer,
-                    (DrawerLayout) findViewById(R.id.drawer_layout),
-                    mToolbar
-            );
-            mNavigationDrawerFragment.setDrawerListener(this);
+        //DrawerNavigation
+        mNavigationDrawerFragment = (NavigationDrawerFragment)
+                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        mNavigationDrawerFragment.setUp(R.id.fragment_navigation_drawer,
+                (DrawerLayout) findViewById(R.id.drawer_layout),
+                mToolbar
+        );
+        mNavigationDrawerFragment.setDrawerListener(this);
 
-            displayView(0);
-        }
-    }
-
-    private void login() {
-        Intent loginIntent = new Intent(this, LoginActivity.class);
-        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(loginIntent);
+        displayView(0);
     }
 
     @Override
@@ -103,6 +90,13 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
 
             getSupportActionBar().setTitle(title);
         }
+    }
+
+    private void login() {
+        Intent loginIntent = new Intent(this, LoginActivity.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginIntent);
     }
 
 }

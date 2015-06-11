@@ -20,6 +20,7 @@ import fr.ravichandrane.sesame.R;
 public class NewUserActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
+    @InjectView(R.id.usernickNameField) EditText mUserNickName;
     @InjectView(R.id.usernameField) EditText mUsername;
     @InjectView(R.id.userfirstnameField) EditText mUserfirstname;
     @InjectView(R.id.useremailField) EditText mUsermail;
@@ -54,11 +55,13 @@ public class NewUserActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_addUser){
+            String userNickName = mUserNickName.getText().toString();
             String username = mUsername.getText().toString();
             String userfirstname = mUserfirstname.getText().toString();
             String useremail = mUsermail.getText().toString();
             String password = mPassword.getText().toString();
 
+            userNickName = userNickName.trim();
             username = username.trim();
             userfirstname = userfirstname.trim();
             useremail = useremail.trim();
@@ -73,7 +76,8 @@ public class NewUserActivity extends AppCompatActivity {
                 dialog.show();
             }else{
                 ParseUser newUser = new ParseUser();
-                newUser.setUsername(username);
+                newUser.setUsername(userNickName);
+                newUser.put("userlastname", username);
                 newUser.put("userfirstname", userfirstname);
                 newUser.setEmail(useremail);
                 newUser.setPassword(password);
@@ -82,6 +86,7 @@ public class NewUserActivity extends AppCompatActivity {
                     @Override
                     public void done(ParseException e) {
                         if (e == null){
+                            mUserNickName.setText("");
                             mUsername.setText("");
                             mUserfirstname.setText("");
                             mUsermail.setText("");

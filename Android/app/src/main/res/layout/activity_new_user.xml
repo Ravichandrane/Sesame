@@ -19,6 +19,18 @@
         android:orientation="vertical">
 
         <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/usernickNameField"
+            android:hint="@string/hint_userNickName"
+            android:inputType="text"
+            android:textColorHint="@color/textHintColor"
+            android:textColor="@color/textInputColor"
+            android:textSize="16sp"
+            app:met_primaryColor = "@color/accentColor"
+            app:met_floatingLabel="highlight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/usernameField"
             android:hint="@string/name_hint"
             android:inputType="text"

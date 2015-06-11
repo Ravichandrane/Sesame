@@ -82,6 +82,9 @@
     <string name="latitude">Latitude :</string>
     <string name="longitude">Longitude :</string>
     <string name="title_activity_main_activity2">MainActivity2Activity</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_launch">LaunchActivity</string>
+    <string name="hint_userNickName">Username</string>
 
 
 </resources>

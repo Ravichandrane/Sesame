@@ -1,12 +1,12 @@
 package fr.ravichandrane.sesame.Fragment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
     protected ImageView mButtonOpen;
 
 
-    Boolean flag=false;
+    Boolean flag = false;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -114,7 +114,12 @@ public class HomeFragment extends Fragment {
         api.getState(new Api.ApiCallback() {
             @Override
             public void onFailure(String error) {
-                Log.e("error", "oups");
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext())
+                        .setTitle(getString(R.string.error_title))
+                        .setMessage("Impossible de récupèrer le status : OnFailure")
+                        .setPositiveButton(getString(R.string.error_cancelMsg), null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
 
             @Override
@@ -130,7 +135,12 @@ public class HomeFragment extends Fragment {
                             }
                         });
                     } else {
-                        Log.e("error", "oups");
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext())
+                                .setTitle(getString(R.string.error_title))
+                                .setMessage("Impossible de récupèrer le status : OnSuccess")
+                                .setPositiveButton(getString(R.string.error_cancelMsg), null);
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -146,7 +156,12 @@ public class HomeFragment extends Fragment {
         toggle.toggleDoor(new Api.ApiCallback() {
             @Override
             public void onFailure(String error) {
-                Log.e("Error:", error);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext())
+                        .setTitle(getString(R.string.error_title))
+                        .setMessage("Impossible d'ouvrir : 1")
+                        .setPositiveButton(getString(R.string.error_cancelMsg), null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
 
             @Override
@@ -154,7 +169,6 @@ public class HomeFragment extends Fragment {
                 try {
                     String jsonData = response.body().string();
                     if (response.isSuccessful()) {
-                        //Log.v("Data :", jsonData);
                         mStatusCodeModel = getStatusCode(jsonData);
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
@@ -171,7 +185,12 @@ public class HomeFragment extends Fragment {
                             openDoor(context.getString(R.string.text_close), context.getString(R.string.msg_close));
                         }
                     } else {
-                        Log.e("error", "oups");
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext())
+                                .setTitle(getString(R.string.error_title))
+                                .setMessage("Impossible d'ouvrir : Try")
+                                .setPositiveButton(getString(R.string.error_cancelMsg), null);
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
