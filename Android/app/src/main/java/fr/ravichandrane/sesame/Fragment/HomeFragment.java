@@ -1,7 +1,6 @@
 package fr.ravichandrane.sesame.Fragment;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.okhttp.Response;
 
@@ -36,16 +36,12 @@ public class HomeFragment extends Fragment {
 
     private Timer timer;
     private TimerTask timerTask;
-
     private HomeModel mHomeModel;
     private StatusCodeModel mStatusCodeModel;
-
     protected TextView mStatus;
     protected TextView mInfoOpenedText;
     protected ImageView mButtonOpen;
-
-
-    Boolean flag = false;
+    protected Boolean mFlag;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -56,6 +52,7 @@ public class HomeFragment extends Fragment {
         timer.cancel();
     }
 
+    //Check the status every 1sec
     public void onResume(){
         super.onResume();
         try {
@@ -63,13 +60,13 @@ public class HomeFragment extends Fragment {
             timerTask = new TimerTask() {
                 @Override
                 public void run() {
-                    //Download file here and refresh
+                    //GetStatus and refresh view
                     getStatus();
                 }
             };
             timer.schedule(timerTask, 1000, 1000);
         } catch (IllegalStateException e){
-            android.util.Log.i("Damn", "resume error");
+            android.util.Log.i("Damn", "error");
         }
     }
 
@@ -85,23 +82,26 @@ public class HomeFragment extends Fragment {
         mStatus = (TextView) rootView.findViewById(R.id.doorState);
         mInfoOpenedText = (TextView) rootView.findViewById(R.id.infoOpenedText);
         mButtonOpen = (ImageView) rootView.findViewById(R.id.buttonOpenDoor);
-
+        mFlag = false;
 
         getStatus();
 
+        //Button to open the garage door
         mButtonOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDoor();
-                Vibrator vibration = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                vibration.vibrate(400);
-                if(flag==false) {
-                    mButtonOpen.setImageResource(R.drawable.button_open);
-                    flag=true;
-                }
-                else{
+                if (!mFlag) {
                     mButtonOpen.setImageResource(R.drawable.button_close);
-                    flag=false;
+                    openDoor();
+                    Vibrator vibration = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                    vibration.vibrate(400);
+                    mFlag = true;
+                } else {
+                    mButtonOpen.setImageResource(R.drawable.button_open);
+                    mFlag = false;
+                    openDoor();
+                    Vibrator vibration = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                    vibration.vibrate(400);
                 }
             }
         });
@@ -109,17 +109,20 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return rootView;
     }
+
+    //Get the status from the API
     private void getStatus() {
         Api api = new Api();
         api.getState(new Api.ApiCallback() {
             @Override
             public void onFailure(String error) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext())
-                        .setTitle(getString(R.string.error_title))
-                        .setMessage("Impossible de récupèrer le status : OnFailure")
-                        .setPositiveButton(getString(R.string.error_cancelMsg), null);
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                final String msgError = error;
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mStatus.setText(msgError);
+                    }
+                });
             }
 
             @Override
@@ -134,13 +137,6 @@ public class HomeFragment extends Fragment {
                                 updateData();
                             }
                         });
-                    } else {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext())
-                                .setTitle(getString(R.string.error_title))
-                                .setMessage("Impossible de récupèrer le status : OnSuccess")
-                                .setPositiveButton(getString(R.string.error_cancelMsg), null);
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -151,17 +147,19 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    //Post the request to open the door
     private void openDoor() {
         Api toggle = new Api();
         toggle.toggleDoor(new Api.ApiCallback() {
             @Override
             public void onFailure(String error) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext())
-                        .setTitle(getString(R.string.error_title))
-                        .setMessage("Impossible d'ouvrir : 1")
-                        .setPositiveButton(getString(R.string.error_cancelMsg), null);
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                final String msgError = error;
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity().getApplicationContext(), msgError, Toast.LENGTH_LONG).show();
+                    }
+                });
             }
 
             @Override
@@ -184,13 +182,6 @@ public class HomeFragment extends Fragment {
                         } else {
                             openDoor(context.getString(R.string.text_close), context.getString(R.string.msg_close));
                         }
-                    } else {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext())
-                                .setTitle(getString(R.string.error_title))
-                                .setMessage("Impossible d'ouvrir : Try")
-                                .setPositiveButton(getString(R.string.error_cancelMsg), null);
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -201,7 +192,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-
+    //Parse data from JSON
     private HomeModel getCurrentDetails(String jsonData) throws JSONException{
         JSONObject status = new JSONObject(jsonData);
         HomeModel homeModel = new HomeModel();
@@ -211,12 +202,14 @@ public class HomeFragment extends Fragment {
         return homeModel;
     }
 
+    //Set data to update the status
     private void updateData() {
         dateFromString date = new dateFromString();
         mStatus.setText("État : " + mHomeModel.getStatusText());
         mInfoOpenedText.setText("À " + date.datetoString(mHomeModel.getTime()) + " par " + mHomeModel.getLasterUser());
     }
 
+    //Parse data from JSON to get the status code
     private StatusCodeModel getStatusCode(String jsonData) throws JSONException {
         JSONObject status = new JSONObject(jsonData);
         JSONObject statusCode = status.getJSONObject("response");
@@ -225,14 +218,13 @@ public class HomeFragment extends Fragment {
         return mStatus;
     }
 
+    //Custom the message when the garage is opened or closed
     private void openDoor(String text, String msg) {
         Intent startActivity = new Intent(getActivity(), OpenActivity.class);
         startActivity.putExtra("text", text);
         startActivity.putExtra("msg", msg);
         startActivity(startActivity);
     }
-
-
 
     @Override
     public void onAttach(Activity activity) {

@@ -9,16 +9,15 @@
     <string name="userfirstname_hint">Prénom</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Mot de passe</string>
-    <string name="nomGarage_hint">Nom du garage</string>
 
     <!-- LoginActivity string -->
     <string name="title_activity_login">Login</string>
     <string name="signin_text">Se connecter</string>
 
     <!-- MainActivity string -->
-    <string name="door_state_text">Etat : Fermé</string>
+    <string name="door_state_text">--</string>
     <string name="last_opened_text">Dernière ouverture :</string>
-    <string name="info_text">Ce matin à 8h24 par Meghan</string>
+    <string name="info_text">...</string>
     <string name="title_activity_close">Fermeture</string>
     <string name="title_denied_garage">Ouverture non autorisée</string>
     <string name="text_denied">Vous n’êtes pas autorisé à ouvrir le garage. Merci de contacter l’administrateur du garage pour plus d’informations.</string>
@@ -50,21 +49,17 @@
     <!-- navigation drawer item labels  -->
     <string name="nav_item_home">Accueil</string>
     <string name="nav_item_foyer">Mon Foyer</string>
-    <string name="nav_item_mention">Mention légal</string>
     <string name="nav_item_signup">Déconnexion</string>
 
     <string-array name="nav_drawer_labels">
         <item>@string/nav_item_home</item>
         <item>@string/nav_item_foyer</item>
-        <item>@string/nav_item_mention</item>
         <item>@string/nav_item_signup</item>
     </string-array>
 
     <string name="title_home">Accueil</string>
     <string name="title_foyer">Mon Foyer</string>
-    <string name="title_mention">Mention légal</string>
     <string name="title_signup">Déconnexion</string>
-
 
     <!-- Error message string -->
     <string name="error_title">Une erreur est survenue :(</string>

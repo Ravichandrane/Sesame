@@ -35,9 +35,12 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
+        //Get the currentuser connected with Parse
+        //And set the user firstname, lastname and user email
         ParseUser currentuser = ParseUser.getCurrentUser();
-        mUsernameNav.setText(currentuser.get("userfirstname") +" "+currentuser.get("userlastname"));
+        mUsernameNav.setText(currentuser.get("userfirstname") + " " + currentuser.get("userlastname"));
         mUseremailNav.setText(currentuser.getEmail());
+
 
         //Setup the toolbar
         mToolbar = (Toolbar) findViewById(R.id.app_bar);
@@ -73,8 +76,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
                 title = getString(R.string.title_foyer);
                 break;
             case 2:
-                break;
-            case 3:
                 login();
                 ParseUser.logOut();
                 break;
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
             fragmentTransaction.replace(R.id.container_body, fragment);
             fragmentTransaction.commit();
 
+            assert getSupportActionBar() != null;
             getSupportActionBar().setTitle(title);
         }
     }
@@ -97,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerF
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(loginIntent);
+        finish();
     }
 
 }

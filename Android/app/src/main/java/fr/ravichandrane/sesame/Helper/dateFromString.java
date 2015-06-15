@@ -11,10 +11,12 @@ import java.util.TimeZone;
  */
 public class dateFromString {
 
+    //Contructor init
     public dateFromString (){
 
     }
 
+    //Helper to convert this yyyy-MM-dd'T'HH:mm:ss.SSS'Z' to HH:mm
     public String datetoString(String time){
         DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         inputFormat.setTimeZone(TimeZone.getDefault());

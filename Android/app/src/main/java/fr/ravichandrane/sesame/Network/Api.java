@@ -24,20 +24,23 @@ public class Api {
         this.client = new OkHttpClient();
     }
 
+    //API : Get the garage door status
     public void getState(final ApiCallback cb) {
         String url = "http://raspberry.pierre-olivier.fr:3000/garage/status";
         Request request = new Request.Builder().url(url).get().build();
-        String onError = "Impossible";
+        String onError = "Impossible de récupèrer le status";
         call(request, onError, cb);
     }
 
+
+    //API : Close & Open the garage door
     public void toggleDoor(final ApiCallback cb){
         ParseUser User = ParseUser.getCurrentUser();
         String userId = (String) User.get("userfirstname");
         String url = "http://raspberry.pierre-olivier.fr:3000/garage/toggle";
         RequestBody formBody = new FormEncodingBuilder().add("authenticate", userId).build();
         Request request = new Request.Builder().url(url).post(formBody).build();
-        String onError = "Impossible d'ouvrir";
+        String onError = "Impossible d'ouvrir la porte";
         call(request, onError, cb);
     }
 

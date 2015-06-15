@@ -4,13 +4,21 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.rey.material.widget.Slider;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -19,8 +27,9 @@ import fr.ravichandrane.sesame.R;
 public class EditActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
-    @InjectView(R.id.nomGarage) EditText mRank;
+    @InjectView(R.id.nameGarage) EditText mNameGarage;
     @InjectView(R.id.radiusMeter) Slider mRadiusMeter;
+    @InjectView(R.id.numCode) TextView mNumCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +43,7 @@ public class EditActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        getInfo();
 
     }
 
@@ -51,38 +61,64 @@ public class EditActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //Save the data into parse
         if (id == R.id.action_addNewProfil) {
-            String rank = mRank.getText().toString();
-            int radiusMeters = mRadiusMeter.getValue();
-
-            rank = rank.trim();
-
-            if (rank.isEmpty()){
-                //Alert message
-                AlertDialog.Builder builder = new AlertDialog.Builder(EditActivity.this)
-                        .setTitle(R.string.error_title)
-                        .setMessage(R.string.error_message)
-                        .setPositiveButton(R.string.error_cancelMsg,null);
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }else{
-                //Add Data
-                ParseObject newProfil = new ParseObject("NewProfil");
-                newProfil.put("rank",rank);
-                newProfil.put("meters", radiusMeters);
-                newProfil.saveInBackground();
-
-                //Clean data from the view
-                mRank.setText("");
-                mRadiusMeter.setValue(0, true);
-
-                //Toast to infor the user
-                Toast.makeText(getApplicationContext(), "Nouveau profil ajouté", Toast.LENGTH_LONG).show();
-            }
-
+            updateInfo();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //Get data from parse
+    private void getInfo() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Homes");
+        query.whereEqualTo("objectId", "5synbJmdMW");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> data, ParseException e) {
+                if (e == null) {
+                    for (ParseObject dataObject : data) {
+                        mNameGarage.setText(dataObject.getString("name"));
+                        mRadiusMeter.setValue(dataObject.getInt("radius"), true);
+                        mNumCode.setText(dataObject.getObjectId());
+                    }
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });
+    }
+
+    //Update data to parse
+    private void updateInfo() {
+        String nameGarage = mNameGarage.getText().toString();
+        int numberRadius = mRadiusMeter.getValue();
+
+        nameGarage = nameGarage.trim();
+
+        if (nameGarage.isEmpty()){
+            //Alert message
+            AlertDialog.Builder builder = new AlertDialog.Builder(EditActivity.this)
+                    .setTitle(R.string.error_title)
+                    .setMessage(R.string.error_message)
+                    .setPositiveButton(R.string.error_cancelMsg, null);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }else{
+            //Update Data
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Homes");
+            final String finalNameGarage = nameGarage;
+            final int finalNumberRadius = numberRadius;
+            query.getInBackground("5synbJmdMW", new GetCallback<ParseObject>() {
+                @Override
+                public void done(ParseObject parseObject, ParseException e) {
+                    if (e == null) {
+                        parseObject.put("name", finalNameGarage);
+                        parseObject.put("radius", finalNumberRadius);
+                        parseObject.saveInBackground();
+                        Toast.makeText(getApplicationContext(), "Garage à jour", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        }
     }
 }

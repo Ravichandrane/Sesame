@@ -5,10 +5,6 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="FoyerActivityTheme" parent="FoyerActivityTheme">
-
-    </style>
-
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/accentColor</item>

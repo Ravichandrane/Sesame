@@ -2,17 +2,186 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
                 tools:context="fr.ravichandrane.sesame.Controller.SplashActivity">
 
+    <ViewFlipper
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewFlipper">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/onboarding_1"/>
+
+            <TextView
+                android:id="@+id/Welcome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:paddingTop="20dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="10dp"
+                android:textStyle="normal"
+                android:textColor="@color/textAlpha"
+                android:text="Bienvenue sur sesame"
+                android:fontFamily="sans-serif-medium"
+                android:layout_below="@+id/imageView1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/WelcomeText"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_width="fill_parent"
+                android:textAlignment="center"
+                android:textColor="@color/textAlpha"
+                android:layout_height="80dp"
+                android:layout_below="@id/Welcome"
+                android:text="Sesame est un système de garage connecté. Vous pouvez ouvrir, fermer et gérer l’accès à votre domicile en toute sécurité  grâce à une simple pression sur votre téléphone."
+                />
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_below="@id/WelcomeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dot_1"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/onboarding_2"/>
+
+            <TextView
+                android:id="@+id/OpenDoor"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:paddingTop="20dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="10dp"
+                android:textStyle="normal"
+                android:textColor="@color/textAlpha"
+                android:text="Sésame, ouvre toi !"
+                android:fontFamily="sans-serif-medium"
+                android:layout_below="@+id/imageView2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/OpenDoorText"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_width="fill_parent"
+                android:textAlignment="center"
+                android:textColor="@color/textAlpha"
+                android:layout_height="80dp"
+                android:layout_below="@id/OpenDoor"
+                android:text="Ne perdez plus votre temps à chercher vos clés. Votre garage s’ouvre lorsque vous êtes à proximité de chez vous."
+                />
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_below="@id/OpenDoorText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dot_2"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="fill_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/onboarding_3"/>
+
+            <TextView
+                android:id="@+id/Share"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:paddingTop="20dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="10dp"
+                android:textStyle="normal"
+                android:textColor="@color/textAlpha"
+                android:text="Partagez votre accès."
+                android:fontFamily="sans-serif-medium"
+                android:layout_below="@+id/imageView3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/ShareText"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_width="fill_parent"
+                android:textAlignment="center"
+                android:textColor="@color/textAlpha"
+                android:layout_height="80dp"
+                android:layout_below="@id/Share"
+                android:text="Partagez l’accès à votre domicile à vos familles et amis en créant des profils utilisateurs types."
+                />
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_below="@id/ShareText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dot_3"/>
+
+        </RelativeLayout>
+
+    </ViewFlipper>
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="Ouvre toi sesame"
+        android:layout_marginBottom="15dp"
+        android:background="@color/accentColor"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
         android:id="@+id/outSplash"
         android:layout_alignParentBottom="true"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_centerHorizontal="true"/>
+
+
+
 </RelativeLayout>

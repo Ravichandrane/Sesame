@@ -15,6 +15,7 @@ public class OpenActivity extends AppCompatActivity {
     @InjectView(R.id.textOpenGarage) TextView mTextOpenGarage;
     @InjectView(R.id.msgOpenGarage) TextView mOpenGarage;
 
+    //This activity show when the user presh on the open button
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

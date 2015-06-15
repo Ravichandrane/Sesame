@@ -1,18 +1,18 @@
 package fr.ravichandrane.sesame.Fragment;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -21,25 +21,17 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
+import fr.ravichandrane.sesame.Adapter.FoyerAdapter;
 import fr.ravichandrane.sesame.Controller.EditActivity;
 import fr.ravichandrane.sesame.R;
 
 /**
  * Created by Ravi on 04/06/15.
  */
-public class FoyerFragment extends Fragment{
+public class FoyerFragment extends ListFragment{
 
     protected List<ParseUser> mUsers;
-    protected ListView mListView;
-
-    public FoyerFragment() {
-        // Required empty public constructor
-    }
-
-
-    public void onResume() {
-        super.onResume();
-    }
+    protected ParseUser mCurrentUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,29 +43,39 @@ public class FoyerFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.foyer_fragment, container, false);
+        // Inflate the layout for this fragment
+        return rootView;
+    }
 
-        mListView = (ListView) rootView.findViewById(R.id.listUsers);
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        mCurrentUser = ParseUser.getCurrentUser();
+
+        //getActivity().setProgressBarIndeterminateVisibility(true);
 
         ParseQuery<ParseUser> query = ParseUser.getQuery();
         query.orderByAscending("userfirstname");
         query.setLimit(1000);
         query.findInBackground(new FindCallback<ParseUser>() {
+            @TargetApi(Build.VERSION_CODES.KITKAT)
             @Override
             public void done(List<ParseUser> users, ParseException e) {
-                if (e == null) {
+                //getActivity().setProgressBarIndeterminateVisibility(false);
+                if(e == null){
                     mUsers = users;
-                    String[] userList = new String[mUsers.size()];
+                    String [] usernames = new String[mUsers.size()];
                     int i = 0;
-                    for (ParseUser user : mUsers) {
-                        userList[i] = String.valueOf(user.get("userfirstname")) + " " + user.get("userlastname");
+
+                    for (ParseUser user : mUsers){
+                        usernames[i] = String.valueOf(user.get("userfirstname")) + " " + user.get("userlastname");
                         i++;
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),
-                            R.layout.custom_textview,
-                            userList);
-                    mListView.setAdapter(adapter);
-                } else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity().getApplicationContext())
+                    FoyerAdapter adapter = new FoyerAdapter(getListView().getContext(), mUsers);
+                    setListAdapter(adapter);
+                }else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getListView().getContext())
                             .setTitle(getString(R.string.error_title))
                             .setMessage(e.getMessage())
                             .setPositiveButton(getString(R.string.error_cancelMsg), null);
@@ -82,8 +84,7 @@ public class FoyerFragment extends Fragment{
                 }
             }
         });
-        // Inflate the layout for this fragment
-        return rootView;
+
     }
 
     @Override
@@ -97,7 +98,7 @@ public class FoyerFragment extends Fragment{
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_edit){
-            Intent editIntent = new Intent(getActivity().getApplicationContext(), EditActivity.class);
+            Intent editIntent = new Intent(getListView().getContext(), EditActivity.class);
             startActivity(editIntent);
         }
 
