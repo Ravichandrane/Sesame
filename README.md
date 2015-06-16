@@ -17,5 +17,5 @@ Application helps you to open your garage
 
 #### TOOLS
 * Raspberry pi  
-* Parse.com
+* Parse
 * Cocoapod
