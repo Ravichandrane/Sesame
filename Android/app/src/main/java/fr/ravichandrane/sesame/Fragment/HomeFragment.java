@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,13 +36,13 @@ import fr.ravichandrane.sesame.R;
 public class HomeFragment extends Fragment {
 
     private Timer timer;
-    private TimerTask timerTask;
     private HomeModel mHomeModel;
     private StatusCodeModel mStatusCodeModel;
     protected TextView mStatus;
     protected TextView mInfoOpenedText;
     protected ImageView mButtonOpen;
     protected Boolean mFlag;
+    protected int mStatusCode;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -57,14 +58,14 @@ public class HomeFragment extends Fragment {
         super.onResume();
         try {
             timer = new Timer();
-            timerTask = new TimerTask() {
+            TimerTask timerTask = new TimerTask() {
                 @Override
                 public void run() {
                     //GetStatus and refresh view
                     getStatus();
                 }
             };
-            timer.schedule(timerTask, 1000, 1000);
+            timer.schedule(timerTask, 1000, 10000);
         } catch (IllegalStateException e){
             android.util.Log.i("Damn", "error");
         }
@@ -90,19 +91,14 @@ public class HomeFragment extends Fragment {
         mButtonOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!mFlag) {
-                    mButtonOpen.setImageResource(R.drawable.button_close);
-                    openDoor();
-                    Vibrator vibration = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                    vibration.vibrate(400);
-                    mFlag = true;
-                } else {
-                    mButtonOpen.setImageResource(R.drawable.button_open);
-                    mFlag = false;
+                if(mStatusCode == 6 || mStatusCode == 4){
+                    Toast.makeText(getActivity().getApplicationContext(), "Veuillez patienter, avant de rappuyer sur le bouton", Toast.LENGTH_LONG).show();
+                }else{
                     openDoor();
                     Vibrator vibration = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
                     vibration.vibrate(400);
                 }
+
             }
         });
 
@@ -177,10 +173,12 @@ public class HomeFragment extends Fragment {
 
                         int StatusCode = mStatusCodeModel.getStatusCode();
                         Context context = getActivity();
+
                         if (StatusCode == 4) {
-                            openDoor(context.getString(R.string.txt_open), context.getString(R.string.msg_open));
+                            openDoorIntent(context.getString(R.string.txt_open), context.getString(R.string.msg_open));
+                            Log.v("Open :", "Open");
                         } else {
-                            openDoor(context.getString(R.string.text_close), context.getString(R.string.msg_close));
+                            openDoorIntent(context.getString(R.string.text_close), context.getString(R.string.msg_close));
                         }
                     }
                 } catch (IOException e) {
@@ -199,6 +197,7 @@ public class HomeFragment extends Fragment {
         homeModel.setStatusText(status.getString("status_text"));
         homeModel.setLasterUser(status.getString("lastUser"));
         homeModel.setTime(status.getString("lastOpen"));
+        homeModel.setStatusCode(status.getInt("status"));
         return homeModel;
     }
 
@@ -207,6 +206,13 @@ public class HomeFragment extends Fragment {
         dateFromString date = new dateFromString();
         mStatus.setText("État : " + mHomeModel.getStatusText());
         mInfoOpenedText.setText("À " + date.datetoString(mHomeModel.getTime()) + " par " + mHomeModel.getLasterUser());
+        mStatusCode = mHomeModel.getStatusCode();
+
+        if(mStatusCode == 2 || mStatusCode == 6){
+            mButtonOpen.setImageResource(R.drawable.button_open);
+        }else{
+            mButtonOpen.setImageResource(R.drawable.button_close);
+        }
     }
 
     //Parse data from JSON to get the status code
@@ -219,7 +225,7 @@ public class HomeFragment extends Fragment {
     }
 
     //Custom the message when the garage is opened or closed
-    private void openDoor(String text, String msg) {
+    private void openDoorIntent(String text, String msg) {
         Intent startActivity = new Intent(getActivity(), OpenActivity.class);
         startActivity.putExtra("text", text);
         startActivity.putExtra("msg", msg);

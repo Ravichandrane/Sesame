@@ -7,16 +7,19 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
 import java.util.List;
@@ -31,6 +34,7 @@ import fr.ravichandrane.sesame.R;
 public class FoyerFragment extends ListFragment{
 
     protected List<ParseUser> mUsers;
+    protected ParseRelation<ParseUser> mUserParseRelation;
     protected ParseUser mCurrentUser;
 
     @Override
@@ -51,23 +55,16 @@ public class FoyerFragment extends ListFragment{
     public void onResume() {
         super.onResume();
 
-        mCurrentUser = ParseUser.getCurrentUser();
-
-        //getActivity().setProgressBarIndeterminateVisibility(true);
 
         ParseQuery<ParseUser> query = ParseUser.getQuery();
-        query.orderByAscending("userfirstname");
-        query.setLimit(1000);
         query.findInBackground(new FindCallback<ParseUser>() {
             @TargetApi(Build.VERSION_CODES.KITKAT)
             @Override
             public void done(List<ParseUser> users, ParseException e) {
-                //getActivity().setProgressBarIndeterminateVisibility(false);
                 if(e == null){
                     mUsers = users;
                     String [] usernames = new String[mUsers.size()];
                     int i = 0;
-
                     for (ParseUser user : mUsers){
                         usernames[i] = String.valueOf(user.get("userfirstname")) + " " + user.get("userlastname");
                         i++;
@@ -85,6 +82,7 @@ public class FoyerFragment extends ListFragment{
             }
         });
 
+
     }
 
     @Override
@@ -92,11 +90,13 @@ public class FoyerFragment extends ListFragment{
         // Inflate the menu; this adds items to the action bar if it is present.
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_foyer, menu);
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
         if (id == R.id.action_edit){
             Intent editIntent = new Intent(getListView().getContext(), EditActivity.class);
             startActivity(editIntent);
@@ -116,5 +116,9 @@ public class FoyerFragment extends ListFragment{
     }
 
 
-
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Log.v("Click", String.valueOf(position));
+    }
 }

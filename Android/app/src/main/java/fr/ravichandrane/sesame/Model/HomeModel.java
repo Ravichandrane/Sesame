@@ -9,6 +9,14 @@ public class HomeModel {
     private String mTime;
     private int mStatusCode;
 
+    public int getStatusCode() {
+        return mStatusCode;
+    }
+
+    public void setStatusCode(int statusCode) {
+        mStatusCode = statusCode;
+    }
+
     public String getLasterUser() {
         return mLasterUser;
     }

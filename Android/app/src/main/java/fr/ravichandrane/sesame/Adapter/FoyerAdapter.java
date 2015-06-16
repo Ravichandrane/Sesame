@@ -60,4 +60,5 @@ public class FoyerAdapter extends ArrayAdapter<ParseUser> {
         TextView ownernameLabel;
         //TextView ownerLabel;
     }
+
 }
