@@ -11,7 +11,7 @@ Application helps you to open your garage
 | Meghan REGIOR  | Com & Market  |
 | Clara RUA | Designer |
 | Pauline DELUSIER | Designer |
-| Pierre LE VAILLANT | Project Manager, Designer & iOS Developer |
+| Pierre LE VAILLANT | Project Manager, Designer |
 | Pierre-Olivier POTIER | iOS Developer |
 | Ravi RAJENDRAN | Android Developer |
 
