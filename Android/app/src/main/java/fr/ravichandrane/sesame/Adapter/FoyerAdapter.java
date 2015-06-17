@@ -40,7 +40,7 @@ public class FoyerAdapter extends ArrayAdapter<ParseUser> {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.foyer_item, null);
             holder = new ViewHolder();
             holder.ownernameLabel = (TextView) convertView.findViewById(R.id.ownername);
-            //holder.ownerLabel = (TextView) convertView.findViewById(R.id.owner);
+            holder.ownerLabel = (TextView) convertView.findViewById(R.id.owner);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder) convertView.getTag();
@@ -58,7 +58,7 @@ public class FoyerAdapter extends ArrayAdapter<ParseUser> {
 
     private static class ViewHolder{
         TextView ownernameLabel;
-        //TextView ownerLabel;
+        TextView ownerLabel;
     }
 
 }

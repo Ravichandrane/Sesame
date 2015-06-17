@@ -53,7 +53,7 @@
                 />
 
             <ImageView
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:layout_below="@id/WelcomeText"
                 android:layout_width="match_parent"
@@ -104,7 +104,7 @@
                 />
 
             <ImageView
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:layout_below="@id/OpenDoorText"
                 android:layout_width="match_parent"
@@ -155,7 +155,7 @@
                 />
 
             <ImageView
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:layout_below="@id/ShareText"
                 android:layout_width="match_parent"

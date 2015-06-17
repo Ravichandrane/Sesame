@@ -7,4 +7,5 @@
                                    android:paddingTop="@dimen/padding_top_tool_bar"
                                    android:background="@color/colorPrimary"
                                    app:theme="@style/MainViewToolBar">
+
 </android.support.v7.widget.Toolbar>

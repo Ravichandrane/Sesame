@@ -37,7 +37,7 @@ public class OpenActivity extends AppCompatActivity {
                 startActivity(startActivity);
                 finish();
             }
-        }, 10000);
+        }, 5000);
 
     }
 

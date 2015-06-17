@@ -55,7 +55,6 @@ public class FoyerFragment extends ListFragment{
     public void onResume() {
         super.onResume();
 
-
         ParseQuery<ParseUser> query = ParseUser.getQuery();
         query.findInBackground(new FindCallback<ParseUser>() {
             @TargetApi(Build.VERSION_CODES.KITKAT)
@@ -90,7 +89,6 @@ public class FoyerFragment extends ListFragment{
         // Inflate the menu; this adds items to the action bar if it is present.
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_foyer, menu);
-
     }
 
     @Override
