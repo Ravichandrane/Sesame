@@ -1,4 +1,4 @@
-//
+ //
 //  AppDelegate.swift
 //  Sesame
 //
@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
+        
         Parse.enableLocalDatastore()
         
         // Initialize Parse.
@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
-        locationManager.delegate = self                // Add this line
+        
+        locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Sound | .Alert | .Badge, categories: nil))
@@ -60,7 +61,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
         if region is CLCircularRegion {
-            handleRegionEvent()
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if(defaults.boolForKey("virtualPerimeterEnter"))
+            {
+                handleRegionEvent()
+            }
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
+        if region is CLCircularRegion {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if(defaults.boolForKey("virtualPerimeterExit"))
+            {
+                handleRegionEvent()
+            }
         }
     }
 

@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import MapKit
 import CoreLocation
+import SwiftLoader
 
 class CustomCell:  UITableViewCell {
     //
@@ -25,6 +26,9 @@ class CustomCell:  UITableViewCell {
         
             getProfil(cellDataParse){ rank in
                 self.profil.text = rank
+                if(rank != "Propriétaire"){
+                    self.selectionStyle = .None
+                }
             }
             
         }else{
@@ -51,8 +55,10 @@ class UsersViewController: UITableViewController, MKMapViewDelegate, CLLocationM
     //
     
     let locationManager = CLLocationManager() // Add this statement
-
+    var refreshhControl:UIRefreshControl!
     
+    var home:Geotification?
+
     
     //
     //  OUTLET
@@ -65,6 +71,8 @@ class UsersViewController: UITableViewController, MKMapViewDelegate, CLLocationM
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        SwiftLoader.show(animated: true)
         
         //
         //  STATUS BAR & BACKGROUND
@@ -80,15 +88,14 @@ class UsersViewController: UITableViewController, MKMapViewDelegate, CLLocationM
         //
         
         getInfos()
-        addUsers()
-        self.addUser.enabled = false
-        isAdmin(PFUser.currentUser()!){ rank in
-            self.addUser.enabled = rank
-        }
-        
+        addUsers(nil)
         mapView.showsUserLocation = true
         locationManager.delegate = self
         self.mapView.delegate = self;
+        
+        self.refreshhControl = UIRefreshControl()
+        self.refreshhControl.addTarget(self, action: "addUsers:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshhControl)
 
     }
 
@@ -110,22 +117,32 @@ class UsersViewController: UITableViewController, MKMapViewDelegate, CLLocationM
             (profil: PFObject?, error: NSError?) -> Void in
             if error == nil && profil != nil {
                 
-                zoomToCoordinateInMapView(true,profil?.objectForKey("name") as! String, profil?.objectForKey("lat") as! String, profil?.objectForKey("long")as! String,self.mapView)
+                zoomToCoordinateInMapView(true, false,profil?.objectForKey("name") as! String, profil?.objectForKey("lat") as! String, profil?.objectForKey("long")as! String,self.mapView)
                 
                 let radius:Double = profil?.objectForKey("radius") as! Double
                 
-                let geo = Geotification(coordinate: makeCoordinate(profil?.objectForKey("lat") as! String, profil?.objectForKey("long")as! String), radius: radius, identifier: "100" , note: profil?.objectForKey("name") as! String)
+                self.home = Geotification(coordinate: makeCoordinate(profil?.objectForKey("lat") as! String, profil?.objectForKey("long")as! String), radius: radius, identifier: "100" , note: profil?.objectForKey("name") as! String)
                 
-                self.startMonitoringGeotification(geo)
-                self.addRadiusOverlayForGeotification(geo)
-
-
+                let defaults = NSUserDefaults.standardUserDefaults()
+                if(defaults.boolForKey("virtualPerimeter"))
+                {
+                    self.startMonitoringGeotification(self.home!)
+                    self.addRadiusOverlayForGeotification(self.home!)
+                }else{
+                    self.locationManager.stopMonitoringForRegion(self.regionWithGeotification(self.home!))
+                }
+                
+            }
+            
+            if let error = error {
+                let errorString = error.userInfo?["error"] as? String
+                showSimpleAlertWithTitle("Error", message: errorString!, viewController: self)
             }
         }
     
     }
     
-    func addUsers() {
+    func addUsers(sender:AnyObject?) {
         
         self.dataParse.removeAllObjects()
         
@@ -144,6 +161,11 @@ class UsersViewController: UITableViewController, MKMapViewDelegate, CLLocationM
             
             self.tableView.reloadData()
             
+            SwiftLoader.hide()
+
+            if(sender != nil){
+                self.refreshhControl?.endRefreshing()
+            }
         })
     }
     
@@ -161,7 +183,6 @@ class UsersViewController: UITableViewController, MKMapViewDelegate, CLLocationM
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
     }
     
     // MARK: - Segues
@@ -173,7 +194,7 @@ class UsersViewController: UITableViewController, MKMapViewDelegate, CLLocationM
 
             let cellDataParse:PFObject = self.dataParse.objectAtIndex(index!.row) as! PFObject
             let vc = segue.destinationViewController as! UserDetailsViewController
-            vc.objectId = cellDataParse.objectId
+            vc.user = cellDataParse
         }
         
         if segue.identifier == "garageEdit" {
@@ -181,6 +202,13 @@ class UsersViewController: UITableViewController, MKMapViewDelegate, CLLocationM
             let nav = segue.destinationViewController as! UINavigationController
             let addEventViewController = nav.topViewController as! GarageEditViewController
             addEventViewController.delegate = self
+        }
+        
+        if segue.identifier == "showMap" {
+            
+            let nav = segue.destinationViewController as! UINavigationController
+            let addEventViewController = nav.topViewController as! MapViewController
+            addEventViewController.home = self.home
         }
         
     }

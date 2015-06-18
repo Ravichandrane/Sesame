@@ -5,6 +5,7 @@ use_frameworks!
 target 'Sesame' do
 	pod 'Alamofire'
 	pod 'Parse'
+	pod 'SwiftLoader'
 end
 
 target 'SesameTests' do

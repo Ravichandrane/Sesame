@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import SwiftLoader
+
 
 protocol NewUserDelegate{
     func newUserAdded(added:Bool)
@@ -21,7 +23,6 @@ class UserAddViewController: UITableViewController {
     //
 
     var delegate:NewUserDelegate?
-
     
     
     //
@@ -63,6 +64,9 @@ class UserAddViewController: UITableViewController {
     
     // Fonction d'ajout d'un utilisateur.
     func userAdd() {
+        SwiftLoader.show(animated: true)
+
+        
         var user = PFUser()
         user.username = self.username.text
         user.password = self.password.text
@@ -70,28 +74,35 @@ class UserAddViewController: UITableViewController {
         user["userfirstname"] = self.prenom.text
         user["userlastname"] = self.nom.text
         
+        
+        //Check if Home code exist
         let home = PFQuery(className:"Homes")
         home.getObjectInBackgroundWithId(self.code.text) {
             (home: PFObject?, error: NSError?) -> Void in
+            
+            //If Home exist save the new user in it
             if error == nil && home != nil {
             user["home"] = home
+            
+            user.signUpInBackgroundWithBlock {
+                (succeeded: Bool, error: NSError?) -> Void in
+                if let error = error {
+                    let errorString = error.userInfo?["error"] as? String
+                    showSimpleAlertWithTitle("Error", message: errorString!, viewController: self)
+                } else {
+                    SwiftLoader.hide()
+                    if let deleg = self.delegate
+                    {
+                        deleg.newUserAdded(true)
+                    }
+                }
+            }
+            
         } else {
             println(error)
             }
         }
         
-        user.signUpInBackgroundWithBlock {
-            (succeeded: Bool, error: NSError?) -> Void in
-            if let error = error {
-                let errorString = error.userInfo?["error"] as? String
-                showSimpleAlertWithTitle("Error", message: errorString!, viewController: self)
-            } else {                
-                if let deleg = self.delegate
-                {
-                    deleg.newUserAdded(true)
-                }
-            }
-        }
         
     }
     

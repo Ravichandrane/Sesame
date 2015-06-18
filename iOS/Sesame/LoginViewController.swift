@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import SwiftLoader
 
 
 class LoginViewController: UIViewController, NewUserDelegate {
@@ -36,9 +37,14 @@ class LoginViewController: UIViewController, NewUserDelegate {
         //  CONTENT
         //
         
+        PFUser.logOut()
+        
         self.login_btn.backgroundColor = pink
         self.login_btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         self.login_btn.layer.cornerRadius = 5
+        
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
         
         // Do any additional setup after loading the view.
     }
@@ -60,6 +66,14 @@ class LoginViewController: UIViewController, NewUserDelegate {
             let addEventViewController = nav.topViewController as! UserAddViewController
             addEventViewController.delegate = self
         }
+    }
+    
+    func DismissKeyboard(){
+        view.endEditing(true)
+        
+        UIView.animateWithDuration(0.25, animations: { () -> Void in
+            self.view.frame.origin.y = 0
+        })
     }
     
     //
@@ -87,9 +101,8 @@ class LoginViewController: UIViewController, NewUserDelegate {
         var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         UIView.animateWithDuration(0.1, animations: { () -> Void in
-            self.view.frame.origin.y -= keyboardFrame.size.height - 60
+            self.view.frame.origin.y = -150
         })
-        
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -97,16 +110,23 @@ class LoginViewController: UIViewController, NewUserDelegate {
     }
     
     func login(){
+        SwiftLoader.show(animated: true)
+
         PFUser.logInWithUsernameInBackground(self.emailField.text, password : self.passwordField.text) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
-                self.dismissViewControllerAnimated(true, completion: {});
-            } else {
-                let alertController = UIAlertController(title: "Sesame", message:
-                    "Problème lors de la connexion !", preferredStyle: UIAlertControllerStyle.Alert)
-                alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default,handler: nil))
+                SwiftLoader.hide()
+                let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc : ViewController = storyboard.instantiateViewControllerWithIdentifier("MainView") as! ViewController
+                vc.modalTransitionStyle = .FlipHorizontal
                 
-                self.presentViewController(alertController, animated: true, completion: nil)
+                let navigationController = UINavigationController(rootViewController: vc)
+                
+                self.presentViewController(navigationController, animated: true, completion: nil)
+            } else {
+                SwiftLoader.hide()
+
+                showSimpleAlertWithTitle("Sesame", message: "Problème lors de la connexion", viewController: self)
             }
         }
     }
@@ -126,6 +146,7 @@ class LoginViewController: UIViewController, NewUserDelegate {
                 navigationController?.popToRootViewControllerAnimated(true)
                 return
             })
+            
         }
     }
     
@@ -136,6 +157,7 @@ class LoginViewController: UIViewController, NewUserDelegate {
     //
     
     @IBAction func login(sender: AnyObject) {
+        DismissKeyboard()
         login()
     }
 

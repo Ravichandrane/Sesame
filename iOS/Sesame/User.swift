@@ -9,7 +9,6 @@
 import Foundation
 import Parse
 
-
 func isAdmin(user:PFUser, completionHandler : (Bool) -> ()) {
     
     var rank_id:Int = -1

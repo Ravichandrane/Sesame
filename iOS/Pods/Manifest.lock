@@ -3,14 +3,17 @@ PODS:
   - Bolts/Tasks (1.1.5)
   - Parse (1.7.4):
     - Bolts/Tasks (>= 1.1.5)
+  - SwiftLoader (0.2.2)
 
 DEPENDENCIES:
   - Alamofire
   - Parse
+  - SwiftLoader
 
 SPEC CHECKSUMS:
   Alamofire: 11a6022f5089887d92ffb5a3014c97a0a915ab98
   Bolts: aac24961496d504aa56fc267cde95162a71bac39
   Parse: 6ca512c6e860b66739c95151b2f76ac4712b7842
+  SwiftLoader: 9c5e547ae8e00b1c1079139492d6a273c7f73171
 
 COCOAPODS: 0.37.2

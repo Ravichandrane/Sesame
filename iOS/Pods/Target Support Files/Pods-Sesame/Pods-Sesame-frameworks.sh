@@ -51,9 +51,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'Bolts.framework'
   install_framework 'Parse.framework'
+  install_framework 'SwiftLoader.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'Bolts.framework'
   install_framework 'Parse.framework'
+  install_framework 'SwiftLoader.framework'
 fi

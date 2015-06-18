@@ -23,9 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Test</string>
+	<string>Utilisation de la géolocalistion pour le périmètre virtuel</string>
 	<key>NSLocationWhenInUsageDescription</key>
-	<string>TEst2</string>
+	<string>Utilisation de la géolocalistion pour le périmètre virtuel</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
